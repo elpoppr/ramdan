@@ -5,19 +5,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const surahNameElement = document.getElementById("surah-name");
     const quranContentElement = document.getElementById("quran-content");
 
-    // ÌáÈ ŞÇÆãÉ ÇáÓæÑ ãä API
+    // Ø¬Ù„Ø¨ Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø³ÙˆØ± Ù…Ù† API
     fetch("https://api.quran.com/api/v4/chapters")
         .then(response => response.json())
         .then(data => {
             const surahs = data.chapters;
             populateSurahList(surahs);
             
-            // ÊÍãíá ÇáÓæÑÉ ÇáÃæáì ÊáŞÇÆíğÇ
+            // ØªØ­Ù…ÙŠÙ„ Ø§Ù„Ø³ÙˆØ±Ø© Ø§Ù„Ø£ÙˆÙ„Ù‰ ØªÙ„Ù‚Ø§Ø¦ÙŠÙ‹Ø§
             loadSurah(surahs[0].id);
         })
         .catch(error => {
             console.error("Error fetching chapters:", error);
-            alert("ÊÚĞÑ ÊÍãíá ŞÇÆãÉ ÇáÓæÑ!");
+            alert("ØªØ¹Ø°Ø± ØªØ­Ù…ÙŠÙ„ Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø³ÙˆØ±!");
         });
 
     function populateSurahList(surahs) {
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .catch(error => {
                 console.error("Error fetching verses:", error);
-                quranContentElement.textContent = "ÊÚĞÑ ÊÍãíá äÕ ÇáÓæÑÉ!";
+                quranContentElement.textContent = "ØªØ¹Ø°Ø± ØªØ­Ù…ÙŠÙ„ Ù†Øµ Ø§Ù„Ø³ÙˆØ±Ø©!";
             });
     }
 
