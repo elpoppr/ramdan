@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>„Ê«ﬁÌ  —„÷«‰</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+    <header>
+        <h1>„Ê«ﬁÌ  —„÷«‰</h1>
+        <p>√Êﬁ«  «·’·«… Ê«·≈›ÿ«— Ê«·”ÕÊ— ·‘Â— —„÷«‰ «·„»«—ﬂ</p>
+        <div class="header-buttons">
+            <button id="darkModeToggle">Ê÷⁄ ·Ì·Ì</button>
+            <button id="quranButton">ﬁ—¬‰ ﬂ—Ì„</button>
+        </div>
+        <div id="google_translate_element"></div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- √Êﬁ«  «·’·«… -->
+            <div class="prayer-times">
+                <h2>√Êﬁ«  «·’·«…</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>«·’·«…</th>
+                            <th>«·Êﬁ </th>
+                        </tr>
+                    </thead>
+                    <tbody id="prayerTable"></tbody>
+                </table>
+            </div>
+
+            <!-- «·≈›ÿ«— Ê«·”ÕÊ— -->
+            <div class="iftar-suhoor">
+                <h2>„Ê«⁄Ìœ «·≈›ÿ«— Ê«·”ÕÊ—</h2>
+                <p>Êﬁ  «·≈›ÿ«—: <span id="iftarTime">--:--</span></p>
+                <p>Êﬁ  «·”ÕÊ—: <span id="suhoorTime">--:--</span></p>
+                <p>«·Êﬁ  «·„ »ﬁÌ Õ Ï «·≈›ÿ«—: <span id="countdownIftar">--:--:--</span></p>
+                <p>«·Êﬁ  «·„ »ﬁÌ Õ Ï «·”ÕÊ—: <span id="countdownSuhoor">--:--:--</span></p>
+            </div>
+
+            <!-- Œ—Ìÿ… «·„”«Ãœ -->
+            <div class="map">
+                <h2>Œ—Ìÿ… «·„”«Ãœ «·ﬁ—Ì»…</h2>
+                <button id="findMosquesButton">«»ÕÀ ⁄‰ «·„”«Ãœ «·ﬁ—Ì»…</button>
+                <div id="map" style="height: 300px; width: 100%;"></div>
+            </div>
+
+            <!-- «·√œ⁄Ì… -->
+            <div class="duas">
+                <h2>œ⁄«¡ «·ÌÊ„</h2>
+                <p id="dailyDua"></p>
+            </div>
+
+            <!-- «·ÿﬁ” -->
+            <div class="weather">
+                <h2>Õ«·… «·ÿﬁ”</h2>
+                <p id="weatherInfo">Ã«—Ì  Õ„Ì· »Ì«‰«  «·ÿﬁ”...</p>
+            </div>
+
+            <!-- «·»ÕÀ -->
+            <div class="search">
+                <input type="text" id="searchInput" placeholder="«»ÕÀ ⁄‰ „Õ ÊÏ...">
+                <button id="searchButton">»ÕÀ</button>
+            </div>
+
+            <!-- «·„”«»ﬁ«  -->
+            <div class="quiz">
+                <h2>„”«»ﬁ… «·ÌÊ„</h2>
+                <p id="quizQuestion"></p>
+                <input type="text" id="quizAnswer" placeholder="√Ã» Â‰«...">
+                <button id="submitQuiz">≈—”«·</button>
+                <p id="quizResult"></p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p> „ «· ’„Ì„ »≈ ﬁ«‰ Ê⁄„· Ã«œ »Ê«”ÿÂ «·»«‘„»—„Ã „Õ„œ «ÌÂ«»</p>
+        <div class="social-share">
+            <button onclick="shareOnFacebook()">Facebook</button>
+            <button onclick="shareOnTwitter()">Twitter</button>
+            <button onclick="shareOnWhatsApp()">WhatsApp</button>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initMap" async defer></script>
+</body>
+</html>
