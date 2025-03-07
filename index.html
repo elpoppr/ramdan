@@ -1,86 +1,85 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ãæÇÞíÊ ÑãÖÇä</title>
+    <title>مواقيت رمضان</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
     <header>
-        <h1>ãæÇÞíÊ ÑãÖÇä</h1>
-        <p>ÃæÞÇÊ ÇáÕáÇÉ æÇáÅÝØÇÑ æÇáÓÍæÑ áÔåÑ ÑãÖÇä ÇáãÈÇÑß</p>
+        <h1>مواقيت رمضان</h1>
+        <p>أوقات الصلاة والإفطار والسحور لشهر رمضان المبارك</p>
         <div class="header-buttons">
-            <button id="darkModeToggle">æÖÚ áíáí</button>
-            <button id="quranButton">ÞÑÂä ßÑíã</button>
+            <button id="darkModeToggle">وضع ليلي</button>
+            <button id="quranButton">قرآن كريم</button>
         </div>
         <div id="google_translate_element"></div>
     </header>
 
     <main>
         <div class="container">
-            <!-- ÃæÞÇÊ ÇáÕáÇÉ -->
+            <!-- أوقات الصلاة -->
             <div class="prayer-times">
-                <h2>ÃæÞÇÊ ÇáÕáÇÉ</h2>
+                <h2>أوقات الصلاة</h2>
                 <table>
                     <thead>
                         <tr>
-                            <th>ÇáÕáÇÉ</th>
-                            <th>ÇáæÞÊ</th>
+                            <th>الصلاة</th>
+                            <th>الوقت</th>
                         </tr>
                     </thead>
                     <tbody id="prayerTable"></tbody>
                 </table>
             </div>
 
-            <!-- ÇáÅÝØÇÑ æÇáÓÍæÑ -->
+            <!-- الإفطار والسحور -->
             <div class="iftar-suhoor">
-                <h2>ãæÇÚíÏ ÇáÅÝØÇÑ æÇáÓÍæÑ</h2>
-                <p>æÞÊ ÇáÅÝØÇÑ: <span id="iftarTime">--:--</span></p>
-                <p>æÞÊ ÇáÓÍæÑ: <span id="suhoorTime">--:--</span></p>
-                <p>ÇáæÞÊ ÇáãÊÈÞí ÍÊì ÇáÅÝØÇÑ: <span id="countdownIftar">--:--:--</span></p>
-                <p>ÇáæÞÊ ÇáãÊÈÞí ÍÊì ÇáÓÍæÑ: <span id="countdownSuhoor">--:--:--</span></p>
+                <h2>مواعيد الإفطار والسحور</h2>
+                <p>وقت الإفطار: <span id="iftarTime">--:--</span></p>
+                <p>وقت السحور: <span id="suhoorTime">--:--</span></p>
+                <p>الوقت المتبقي حتى الإفطار: <span id="countdownIftar">--:--:--</span></p>
+                <p>الوقت المتبقي حتى السحور: <span id="countdownSuhoor">--:--:--</span></p>
             </div>
 
-            <!-- ÎÑíØÉ ÇáãÓÇÌÏ -->
+            <!-- خريطة المساجد -->
             <div class="map">
-                <h2>ÎÑíØÉ ÇáãÓÇÌÏ ÇáÞÑíÈÉ</h2>
-                <button id="findMosquesButton">ÇÈÍË Úä ÇáãÓÇÌÏ ÇáÞÑíÈÉ</button>
+                <h2>خريطة المساجد القريبة</h2>
+                <button id="findMosquesButton">ابحث عن المساجد القريبة</button>
                 <div id="map" style="height: 300px; width: 100%;"></div>
             </div>
 
-            <!-- ÇáÃÏÚíÉ -->
+            <!-- الأدعية -->
             <div class="duas">
-                <h2>ÏÚÇÁ Çáíæã</h2>
+                <h2>دعاء اليوم</h2>
                 <p id="dailyDua"></p>
             </div>
 
-            <!-- ÇáØÞÓ -->
+            <!-- الطقس -->
             <div class="weather">
-                <h2>ÍÇáÉ ÇáØÞÓ</h2>
-                <p id="weatherInfo">ÌÇÑí ÊÍãíá ÈíÇäÇÊ ÇáØÞÓ...</p>
+                <h2>حالة الطقس</h2>
+                <p id="weatherInfo">جاري تحميل بيانات الطقس...</p>
             </div>
 
-            <!-- ÇáÈÍË -->
+            <!-- البحث -->
             <div class="search">
-                <input type="text" id="searchInput" placeholder="ÇÈÍË Úä ãÍÊæì...">
-                <button id="searchButton">ÈÍË</button>
+                <input type="text" id="searchInput" placeholder="ابحث عن محتوى...">
+                <button id="searchButton">بحث</button>
             </div>
 
-            <!-- ÇáãÓÇÈÞÇÊ -->
+            <!-- المسابقات -->
             <div class="quiz">
-                <h2>ãÓÇÈÞÉ Çáíæã</h2>
+                <h2>مسابقة اليوم</h2>
                 <p id="quizQuestion"></p>
-                <input type="text" id="quizAnswer" placeholder="ÃÌÈ åäÇ...">
-                <button id="submitQuiz">ÅÑÓÇá</button>
+                <input type="text" id="quizAnswer" placeholder="أجب هنا...">
+                <button id="submitQuiz">إرسال</button>
                 <p id="quizResult"></p>
             </div>
         </div>
     </main>
 
     <footer>
-        <p>Êã ÇáÊÕãíã ÈÅÊÞÇä æÚãá ÌÇÏ ÈæÇÓØå ÇáÈÇÔãÈÑãÌ ãÍãÏ ÇíåÇÈ</p>
+        <p>تم التصميم بإتقان وعمل جاد بواسطه الباشمبرمج محمد ايهاب</p>
         <div class="social-share">
             <button onclick="shareOnFacebook()">Facebook</button>
             <button onclick="shareOnTwitter()">Twitter</button>
