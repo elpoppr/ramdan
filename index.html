@@ -1,85 +1,86 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>„Ê«ﬁÌ  —„÷«‰</title>
+    <title>√£√¶√á√û√≠√ä √ë√£√ñ√á√§</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
     <header>
-        <h1>„Ê«ﬁÌ  —„÷«‰</h1>
-        <p>√Êﬁ«  «·’·«… Ê«·≈›ÿ«— Ê«·”ÕÊ— ·‘Â— —„÷«‰ «·„»«—ﬂ</p>
+        <h1>√£√¶√á√û√≠√ä √ë√£√ñ√á√§</h1>
+        <p>√É√¶√û√á√ä √á√°√ï√°√á√â √¶√á√°√Ö√ù√ò√á√ë √¶√á√°√ì√ç√¶√ë √°√î√•√ë √ë√£√ñ√á√§ √á√°√£√à√á√ë√ü</p>
         <div class="header-buttons">
-            <button id="darkModeToggle">Ê÷⁄ ·Ì·Ì</button>
-            <button id="quranButton">ﬁ—¬‰ ﬂ—Ì„</button>
+            <button id="darkModeToggle">√¶√ñ√ö √°√≠√°√≠</button>
+            <button id="quranButton">√û√ë√Ç√§ √ü√ë√≠√£</button>
         </div>
         <div id="google_translate_element"></div>
     </header>
 
     <main>
         <div class="container">
-            <!-- √Êﬁ«  «·’·«… -->
+            <!-- √É√¶√û√á√ä √á√°√ï√°√á√â -->
             <div class="prayer-times">
-                <h2>√Êﬁ«  «·’·«…</h2>
+                <h2>√É√¶√û√á√ä √á√°√ï√°√á√â</h2>
                 <table>
                     <thead>
                         <tr>
-                            <th>«·’·«…</th>
-                            <th>«·Êﬁ </th>
+                            <th>√á√°√ï√°√á√â</th>
+                            <th>√á√°√¶√û√ä</th>
                         </tr>
                     </thead>
                     <tbody id="prayerTable"></tbody>
                 </table>
             </div>
 
-            <!-- «·≈›ÿ«— Ê«·”ÕÊ— -->
+            <!-- √á√°√Ö√ù√ò√á√ë √¶√á√°√ì√ç√¶√ë -->
             <div class="iftar-suhoor">
-                <h2>„Ê«⁄Ìœ «·≈›ÿ«— Ê«·”ÕÊ—</h2>
-                <p>Êﬁ  «·≈›ÿ«—: <span id="iftarTime">--:--</span></p>
-                <p>Êﬁ  «·”ÕÊ—: <span id="suhoorTime">--:--</span></p>
-                <p>«·Êﬁ  «·„ »ﬁÌ Õ Ï «·≈›ÿ«—: <span id="countdownIftar">--:--:--</span></p>
-                <p>«·Êﬁ  «·„ »ﬁÌ Õ Ï «·”ÕÊ—: <span id="countdownSuhoor">--:--:--</span></p>
+                <h2>√£√¶√á√ö√≠√è √á√°√Ö√ù√ò√á√ë √¶√á√°√ì√ç√¶√ë</h2>
+                <p>√¶√û√ä √á√°√Ö√ù√ò√á√ë: <span id="iftarTime">--:--</span></p>
+                <p>√¶√û√ä √á√°√ì√ç√¶√ë: <span id="suhoorTime">--:--</span></p>
+                <p>√á√°√¶√û√ä √á√°√£√ä√à√û√≠ √ç√ä√¨ √á√°√Ö√ù√ò√á√ë: <span id="countdownIftar">--:--:--</span></p>
+                <p>√á√°√¶√û√ä √á√°√£√ä√à√û√≠ √ç√ä√¨ √á√°√ì√ç√¶√ë: <span id="countdownSuhoor">--:--:--</span></p>
             </div>
 
-            <!-- Œ—Ìÿ… «·„”«Ãœ -->
+            <!-- √é√ë√≠√ò√â √á√°√£√ì√á√å√è -->
             <div class="map">
-                <h2>Œ—Ìÿ… «·„”«Ãœ «·ﬁ—Ì»…</h2>
-                <button id="findMosquesButton">«»ÕÀ ⁄‰ «·„”«Ãœ «·ﬁ—Ì»…</button>
+                <h2>√é√ë√≠√ò√â √á√°√£√ì√á√å√è √á√°√û√ë√≠√à√â</h2>
+                <button id="findMosquesButton">√á√à√ç√ã √ö√§ √á√°√£√ì√á√å√è √á√°√û√ë√≠√à√â</button>
                 <div id="map" style="height: 300px; width: 100%;"></div>
             </div>
 
-            <!-- «·√œ⁄Ì… -->
+            <!-- √á√°√É√è√ö√≠√â -->
             <div class="duas">
-                <h2>œ⁄«¡ «·ÌÊ„</h2>
+                <h2>√è√ö√á√Å √á√°√≠√¶√£</h2>
                 <p id="dailyDua"></p>
             </div>
 
-            <!-- «·ÿﬁ” -->
+            <!-- √á√°√ò√û√ì -->
             <div class="weather">
-                <h2>Õ«·… «·ÿﬁ”</h2>
-                <p id="weatherInfo">Ã«—Ì  Õ„Ì· »Ì«‰«  «·ÿﬁ”...</p>
+                <h2>√ç√á√°√â √á√°√ò√û√ì</h2>
+                <p id="weatherInfo">√å√á√ë√≠ √ä√ç√£√≠√° √à√≠√á√§√á√ä √á√°√ò√û√ì...</p>
             </div>
 
-            <!-- «·»ÕÀ -->
+            <!-- √á√°√à√ç√ã -->
             <div class="search">
-                <input type="text" id="searchInput" placeholder="«»ÕÀ ⁄‰ „Õ ÊÏ...">
-                <button id="searchButton">»ÕÀ</button>
+                <input type="text" id="searchInput" placeholder="√á√à√ç√ã √ö√§ √£√ç√ä√¶√¨...">
+                <button id="searchButton">√à√ç√ã</button>
             </div>
 
-            <!-- «·„”«»ﬁ«  -->
+            <!-- √á√°√£√ì√á√à√û√á√ä -->
             <div class="quiz">
-                <h2>„”«»ﬁ… «·ÌÊ„</h2>
+                <h2>√£√ì√á√à√û√â √á√°√≠√¶√£</h2>
                 <p id="quizQuestion"></p>
-                <input type="text" id="quizAnswer" placeholder="√Ã» Â‰«...">
-                <button id="submitQuiz">≈—”«·</button>
+                <input type="text" id="quizAnswer" placeholder="√É√å√à √•√§√á...">
+                <button id="submitQuiz">√Ö√ë√ì√á√°</button>
                 <p id="quizResult"></p>
             </div>
         </div>
     </main>
 
     <footer>
-        <p> „ «· ’„Ì„ »≈ ﬁ«‰ Ê⁄„· Ã«œ »Ê«”ÿÂ «·»«‘„»—„Ã „Õ„œ «ÌÂ«»</p>
+        <p>√ä√£ √á√°√ä√ï√£√≠√£ √à√Ö√ä√û√á√§ √¶√ö√£√° √å√á√è √à√¶√á√ì√ò√• √á√°√à√á√î√£√à√ë√£√å √£√ç√£√è √á√≠√•√á√à</p>
         <div class="social-share">
             <button onclick="shareOnFacebook()">Facebook</button>
             <button onclick="shareOnTwitter()">Twitter</button>
