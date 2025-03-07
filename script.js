@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     let userLocation;
 
-    // ÊÍÏíÏ ãæŞÚ ÇáãÓÊÎÏã
+    // ØªØ­Ø¯ÙŠØ¯ Ù…ÙˆÙ‚Ø¹ Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             (position) => {
@@ -14,22 +14,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 fetchWeather(userLocation);
             },
             (error) => {
-                alert("ÊÚĞÑ ÇáÍÕæá Úáì ãæŞÚß. íÑÌì ÊİÚíá ÎÏãÉ ÇáãæŞÚ.");
-                // ÇÓÊÎÏÇã ãæŞÚ ÇİÊÑÇÖí (ãËÇá: ãßÉ ÇáãßÑãÉ)
+                alert("ØªØ¹Ø°Ø± Ø§Ù„Ø­ØµÙˆÙ„ Ø¹Ù„Ù‰ Ù…ÙˆÙ‚Ø¹Ùƒ. ÙŠØ±Ø¬Ù‰ ØªÙØ¹ÙŠÙ„ Ø®Ø¯Ù…Ø© Ø§Ù„Ù…ÙˆÙ‚Ø¹.");
+                // Ø§Ø³ØªØ®Ø¯Ø§Ù… Ù…ÙˆÙ‚Ø¹ Ø§ÙØªØ±Ø§Ø¶ÙŠ (Ù…Ø«Ø§Ù„: Ù…ÙƒØ© Ø§Ù„Ù…ÙƒØ±Ù…Ø©)
                 userLocation = { lat: 21.4225, lng: 39.8262 };
                 fetchPrayerTimes(userLocation);
                 fetchWeather(userLocation);
             }
         );
     } else {
-        alert("ÇáãÊÕİÍ áÇ íÏÚã ÎÏãÉ ÇáãæŞÚ.");
-        // ÇÓÊÎÏÇã ãæŞÚ ÇİÊÑÇÖí (ãËÇá: ãßÉ ÇáãßÑãÉ)
+        alert("Ø§Ù„Ù…ØªØµÙØ­ Ù„Ø§ ÙŠØ¯Ø¹Ù… Ø®Ø¯Ù…Ø© Ø§Ù„Ù…ÙˆÙ‚Ø¹.");
+        // Ø§Ø³ØªØ®Ø¯Ø§Ù… Ù…ÙˆÙ‚Ø¹ Ø§ÙØªØ±Ø§Ø¶ÙŠ (Ù…Ø«Ø§Ù„: Ù…ÙƒØ© Ø§Ù„Ù…ÙƒØ±Ù…Ø©)
         userLocation = { lat: 21.4225, lng: 39.8262 };
         fetchPrayerTimes(userLocation);
         fetchWeather(userLocation);
     }
 
-    // ÌáÈ ÃæŞÇÊ ÇáÕáÇÉ ÈäÇÁğ Úáì ÇáãæŞÚ
+    // Ø¬Ù„Ø¨ Ø£ÙˆÙ‚Ø§Øª Ø§Ù„ØµÙ„Ø§Ø© Ø¨Ù†Ø§Ø¡Ù‹ Ø¹Ù„Ù‰ Ø§Ù„Ù…ÙˆÙ‚Ø¹
     function fetchPrayerTimes(location) {
         const apiUrl = `https://api.aladhan.com/v1/timings?latitude=${location.lat}&longitude=${location.lng}&method=2`;
         fetch(apiUrl)
@@ -37,18 +37,18 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(data => {
                 const timings = data.data.timings;
 
-                // ÚÑÖ ÃæŞÇÊ ÇáÕáÇÉ
+                // Ø¹Ø±Ø¶ Ø£ÙˆÙ‚Ø§Øª Ø§Ù„ØµÙ„Ø§Ø©
                 const prayerTimes = [
-                    { name: "ÇáİÌÑ", time: timings.Fajr },
-                    { name: "ÇáÔÑæŞ", time: timings.Sunrise },
-                    { name: "ÇáÙåÑ", time: timings.Dhuhr },
-                    { name: "ÇáÚÕÑ", time: timings.Asr },
-                    { name: "ÇáãÛÑÈ", time: timings.Maghrib },
-                    { name: "ÇáÚÔÇÁ", time: timings.Isha },
+                    { name: "Ø§Ù„ÙØ¬Ø±", time: timings.Fajr },
+                    { name: "Ø§Ù„Ø´Ø±ÙˆÙ‚", time: timings.Sunrise },
+                    { name: "Ø§Ù„Ø¸Ù‡Ø±", time: timings.Dhuhr },
+                    { name: "Ø§Ù„Ø¹ØµØ±", time: timings.Asr },
+                    { name: "Ø§Ù„Ù…ØºØ±Ø¨", time: timings.Maghrib },
+                    { name: "Ø§Ù„Ø¹Ø´Ø§Ø¡", time: timings.Isha },
                 ];
 
                 const tableBody = document.getElementById("prayerTable");
-                tableBody.innerHTML = ""; // ãÓÍ ÇáÌÏæá ÇáŞÏíã
+                tableBody.innerHTML = ""; // Ù…Ø³Ø­ Ø§Ù„Ø¬Ø¯ÙˆÙ„ Ø§Ù„Ù‚Ø¯ÙŠÙ…
                 prayerTimes.forEach(prayer => {
                     const row = document.createElement("tr");
                     row.innerHTML = `
@@ -58,36 +58,36 @@ document.addEventListener("DOMContentLoaded", function () {
                     tableBody.appendChild(row);
                 });
 
-                // ÊÚííä æŞÊ ÇáÅİØÇÑ æÇáÓÍæÑ
+                // ØªØ¹ÙŠÙŠÙ† ÙˆÙ‚Øª Ø§Ù„Ø¥ÙØ·Ø§Ø± ÙˆØ§Ù„Ø³Ø­ÙˆØ±
                 const iftarTime = timings.Maghrib;
                 const suhoorTime = timings.Fajr;
 
                 document.getElementById("iftarTime").textContent = iftarTime;
                 document.getElementById("suhoorTime").textContent = suhoorTime;
 
-                // ãÄŞÊ ÊäÇÒáí ááÅİØÇÑ æÇáÓÍæÑ
+                // Ù…Ø¤Ù‚Øª ØªÙ†Ø§Ø²Ù„ÙŠ Ù„Ù„Ø¥ÙØ·Ø§Ø± ÙˆØ§Ù„Ø³Ø­ÙˆØ±
                 setCountdown(iftarTime, "countdownIftar");
                 setCountdown(suhoorTime, "countdownSuhoor");
             })
             .catch(error => console.error("Error fetching prayer times:", error));
     }
 
-    // ÌáÈ ÍÇáÉ ÇáØŞÓ ÈäÇÁğ Úáì ÇáãæŞÚ
+    // Ø¬Ù„Ø¨ Ø­Ø§Ù„Ø© Ø§Ù„Ø·Ù‚Ø³ Ø¨Ù†Ø§Ø¡Ù‹ Ø¹Ù„Ù‰ Ø§Ù„Ù…ÙˆÙ‚Ø¹
     function fetchWeather(location) {
-        const weatherApiKey = "YOUR_WEATHER_API_KEY"; // ÇÓÊÈÏá ÈãİÊÇÍ API ÇáÎÇÕ Èß
+        const weatherApiKey = "YOUR_WEATHER_API_KEY"; // Ø§Ø³ØªØ¨Ø¯Ù„ Ø¨Ù…ÙØªØ§Ø­ API Ø§Ù„Ø®Ø§Øµ Ø¨Ùƒ
         fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.lng}&appid=${weatherApiKey}&units=metric&lang=ar`)
             .then(response => response.json())
             .then(data => {
                 const weatherInfo = document.getElementById("weatherInfo");
-                weatherInfo.textContent = `ÇáÍÑÇÑÉ: ${data.main.temp}°C, ÇáØŞÓ: ${data.weather[0].description}`;
+                weatherInfo.textContent = `Ø§Ù„Ø­Ø±Ø§Ø±Ø©: ${data.main.temp}Â°C, Ø§Ù„Ø·Ù‚Ø³: ${data.weather[0].description}`;
             })
             .catch(error => {
                 console.error("Error fetching weather data:", error);
-                document.getElementById("weatherInfo").textContent = "ÊÚĞÑ ÊÍãíá ÈíÇäÇÊ ÇáØŞÓ.";
+                document.getElementById("weatherInfo").textContent = "ØªØ¹Ø°Ø± ØªØ­Ù…ÙŠÙ„ Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ø·Ù‚Ø³.";
             });
     }
 
-    // ÏÇáÉ ÇáãÄŞÊ ÇáÊäÇÒáí
+    // Ø¯Ø§Ù„Ø© Ø§Ù„Ù…Ø¤Ù‚Øª Ø§Ù„ØªÙ†Ø§Ø²Ù„ÙŠ
     function setCountdown(targetTime, elementId) {
         const countdownElement = document.getElementById(elementId);
 
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const targetDate = new Date(`${now.toDateString()} ${targetTime}`);
 
             if (now > targetDate) {
-                targetDate.setDate(targetDate.getDate() + 1); // ÇáÇäÊŞÇá ááíæã ÇáÊÇáí
+                targetDate.setDate(targetDate.getDate() + 1); // Ø§Ù„Ø§Ù†ØªÙ‚Ø§Ù„ Ù„Ù„ÙŠÙˆÙ… Ø§Ù„ØªØ§Ù„ÙŠ
             }
 
             const timeDiff = targetDate - now;
@@ -111,25 +111,25 @@ document.addEventListener("DOMContentLoaded", function () {
         updateCountdown();
     }
 
-    // æÖÚ áíáí
+    // ÙˆØ¶Ø¹ Ù„ÙŠÙ„ÙŠ
     const darkModeToggle = document.getElementById("darkModeToggle");
     darkModeToggle.addEventListener("click", () => {
         document.body.classList.toggle("dark-mode");
     });
 
-    // ÒÑ ŞÑÂä ßÑíã
+    // Ø²Ø± Ù‚Ø±Ø¢Ù† ÙƒØ±ÙŠÙ…
     const quranButton = document.getElementById("quranButton");
     quranButton.addEventListener("click", () => {
         window.open("html.html");
     });
 
-    // ÎÑíØÉ ÇáãÓÇÌÏ
+    // Ø®Ø±ÙŠØ·Ø© Ø§Ù„Ù…Ø³Ø§Ø¬Ø¯
     let map;
     let service;
 
     function initMap() {
         map = new google.maps.Map(document.getElementById("map"), {
-            center: userLocation || { lat: 21.4225, lng: 39.8262 }, // ãßÉ ÇáãßÑãÉ ßãæŞÚ ÇİÊÑÇÖí
+            center: userLocation || { lat: 21.4225, lng: 39.8262 }, // Ù…ÙƒØ© Ø§Ù„Ù…ÙƒØ±Ù…Ø© ÙƒÙ…ÙˆÙ‚Ø¹ Ø§ÙØªØ±Ø§Ø¶ÙŠ
             zoom: 12,
         });
 
@@ -140,14 +140,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function findNearbyMosques() {
         if (!userLocation) {
-            alert("ÊÚĞÑ ÇáÍÕæá Úáì ãæŞÚß.");
+            alert("ØªØ¹Ø°Ø± Ø§Ù„Ø­ØµÙˆÙ„ Ø¹Ù„Ù‰ Ù…ÙˆÙ‚Ø¹Ùƒ.");
             return;
         }
 
         const request = {
             location: userLocation,
-            radius: 5000, // 5 ßíáæãÊÑ
-            keyword: "ãÓÌÏ",
+            radius: 5000, // 5 ÙƒÙŠÙ„ÙˆÙ…ØªØ±
+            keyword: "Ù…Ø³Ø¬Ø¯",
         };
 
         service.nearbySearch(request, (results, status) => {
@@ -160,85 +160,85 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                 });
             } else {
-                alert("ÊÚĞÑ ÇáÚËæÑ Úáì ãÓÇÌÏ ŞÑíÈÉ.");
+                alert("ØªØ¹Ø°Ø± Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ù…Ø³Ø§Ø¬Ø¯ Ù‚Ø±ÙŠØ¨Ø©.");
             }
         });
     }
 
-    // ÃÏÚíÉ íæãíÉ (30 ÏÚÇÁğ)
+    // Ø£Ø¯Ø¹ÙŠØ© ÙŠÙˆÙ…ÙŠØ© (30 Ø¯Ø¹Ø§Ø¡Ù‹)
     const duas = [
-        "Çááåã ÃÚäí Úáì ĞßÑß æÔßÑß æÍÓä ÚÈÇÏÊß.",
-        "Çááåã Åäí ÃÓÃáß ÚáãÇğ äÇİÚÇğ¡ æÑÒŞÇğ ØíÈÇğ¡ æÚãáÇğ ãÊŞÈáÇğ.",
-        "Çááåã ÇÑÒŞäí ÍÓä ÇáÎÇÊãÉ.",
-        "Çááåã ÇÛİÑ áí æáæÇáÏí æááãÄãäíä íæã íŞæã ÇáÍÓÇÈ.",
-        "Çááåã Åäí ÃÓÃáß ÑÖÇß æÇáÌäÉ¡ æÃÚæĞ Èß ãä ÓÎØß æÇáäÇÑ.",
-        "Çááåã ÇÌÚáäí ãä ÇáÊæÇÈíä æÇÌÚáäí ãä ÇáãÊØåÑíä.",
-        "Çááåã Åäí ÃÓÃáß ÇáÚİæ æÇáÚÇİíÉ İí ÇáÏäíÇ æÇáÂÎÑÉ.",
-        "Çááåã Åäí ÃÓÃáß ÇáİÑÏæÓ ÇáÃÚáì ãä ÇáÌäÉ.",
-        "Çááåã Åäí ÃÓÃáß ÍÓä ÇáÎÇÊãÉ.",
-        "Çááåã Åäí ÃÓÃáß ÇáåÏì æÇáÊŞì æÇáÚİÇİ æÇáÛäì.",
-        "Çááåã Åäí ÃÓÃáß ÇáÌäÉ æãÇ ŞÑÈ ÅáíåÇ ãä Şæá Ãæ Úãá.",
-        "Çááåã Åäí ÃÓÃáß ÇáäÌÇÉ ãä ÇáäÇÑ.",
-        "Çááåã Åäí ÃÓÃáß ÇáÑÖÇ ÈÚÏ ÇáŞÖÇÁ.",
-        "Çááåã Åäí ÃÓÃáß ÇáÈÑßÉ İí ÇáÚãÑ æÇáÕÍÉ æÇáÚãá.",
-        "Çááåã Åäí ÃÓÃáß ÇáÕÈÑ ÚäÏ ÇáÈáÇÁ æÇáÔßÑ ÚäÏ ÇáÑÎÇÁ.",
-        "Çááåã Åäí ÃÓÃáß ÍÓä ÇáÙä Èß.",
-        "Çááåã Åäí ÃÓÃáß ÇáÚİæ æÇáÚÇİíÉ İí Ïíäí æÏäíÇí æÃåáí æãÇáí.",
-        "Çááåã Åäí ÃÓÃáß ÇáÓÊÑ æÇáÚÇİíÉ İí ÇáÏäíÇ æÇáÂÎÑÉ.",
-        "Çááåã Åäí ÃÓÃáß ÇáãÛİÑÉ æÇáÑÍãÉ.",
-        "Çááåã Åäí ÃÓÃáß ÇáËÈÇÊ Úáì ÇáÏíä.",
-        "Çááåã Åäí ÃÓÃáß ÇáŞæÉ İí ÇáÚÈÇÏÉ.",
-        "Çááåã Åäí ÃÓÃáß ÇáÊæİíŞ İí ßá ÃãæÑí.",
-        "Çááåã Åäí ÃÓÃáß ÇáİÑÌ ÈÚÏ ÇáÔÏÉ.",
-        "Çááåã Åäí ÃÓÃáß ÇáÃãä íæã ÇáİÒÚ ÇáÃßÈÑ.",
-        "Çááåã Åäí ÃÓÃáß ÇáÌäÉ æäÚíãåÇ.",
-        "Çááåã Åäí ÃÓÃáß ÇáäÌÇÉ ãä ÇáäÇÑ æÚĞÇÈåÇ.",
-        "Çááåã Åäí ÃÓÃáß ÍÓä ÇáÚãá æÎÇÊãÊå.",
-        "Çááåã Åäí ÃÓÃáß ÇáÕÈÑ Úáì ØÇÚÊß.",
-        "Çááåã Åäí ÃÓÃáß ÇáÚİæ ÚäÏ ÇáãÚÕíÉ.",
-        "Çááåã Åäí ÃÓÃáß ÇáÑÖÇ ÈÇáŞÖÇÁ.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø£Ø¹Ù†ÙŠ Ø¹Ù„Ù‰ Ø°ÙƒØ±Ùƒ ÙˆØ´ÙƒØ±Ùƒ ÙˆØ­Ø³Ù† Ø¹Ø¨Ø§Ø¯ØªÙƒ.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø¹Ù„Ù…Ø§Ù‹ Ù†Ø§ÙØ¹Ø§Ù‹ØŒ ÙˆØ±Ø²Ù‚Ø§Ù‹ Ø·ÙŠØ¨Ø§Ù‹ØŒ ÙˆØ¹Ù…Ù„Ø§Ù‹ Ù…ØªÙ‚Ø¨Ù„Ø§Ù‹.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø§Ø±Ø²Ù‚Ù†ÙŠ Ø­Ø³Ù† Ø§Ù„Ø®Ø§ØªÙ…Ø©.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø§ØºÙØ± Ù„ÙŠ ÙˆÙ„ÙˆØ§Ù„Ø¯ÙŠ ÙˆÙ„Ù„Ù…Ø¤Ù…Ù†ÙŠÙ† ÙŠÙˆÙ… ÙŠÙ‚ÙˆÙ… Ø§Ù„Ø­Ø³Ø§Ø¨.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø±Ø¶Ø§Ùƒ ÙˆØ§Ù„Ø¬Ù†Ø©ØŒ ÙˆØ£Ø¹ÙˆØ° Ø¨Ùƒ Ù…Ù† Ø³Ø®Ø·Ùƒ ÙˆØ§Ù„Ù†Ø§Ø±.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø§Ø¬Ø¹Ù„Ù†ÙŠ Ù…Ù† Ø§Ù„ØªÙˆØ§Ø¨ÙŠÙ† ÙˆØ§Ø¬Ø¹Ù„Ù†ÙŠ Ù…Ù† Ø§Ù„Ù…ØªØ·Ù‡Ø±ÙŠÙ†.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø§Ù„Ø¹ÙÙˆ ÙˆØ§Ù„Ø¹Ø§ÙÙŠØ© ÙÙŠ Ø§Ù„Ø¯Ù†ÙŠØ§ ÙˆØ§Ù„Ø¢Ø®Ø±Ø©.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø§Ù„ÙØ±Ø¯ÙˆØ³ Ø§Ù„Ø£Ø¹Ù„Ù‰ Ù…Ù† Ø§Ù„Ø¬Ù†Ø©.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø­Ø³Ù† Ø§Ù„Ø®Ø§ØªÙ…Ø©.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø§Ù„Ù‡Ø¯Ù‰ ÙˆØ§Ù„ØªÙ‚Ù‰ ÙˆØ§Ù„Ø¹ÙØ§Ù ÙˆØ§Ù„ØºÙ†Ù‰.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø§Ù„Ø¬Ù†Ø© ÙˆÙ…Ø§ Ù‚Ø±Ø¨ Ø¥Ù„ÙŠÙ‡Ø§ Ù…Ù† Ù‚ÙˆÙ„ Ø£Ùˆ Ø¹Ù…Ù„.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø§Ù„Ù†Ø¬Ø§Ø© Ù…Ù† Ø§Ù„Ù†Ø§Ø±.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø§Ù„Ø±Ø¶Ø§ Ø¨Ø¹Ø¯ Ø§Ù„Ù‚Ø¶Ø§Ø¡.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø§Ù„Ø¨Ø±ÙƒØ© ÙÙŠ Ø§Ù„Ø¹Ù…Ø± ÙˆØ§Ù„ØµØ­Ø© ÙˆØ§Ù„Ø¹Ù…Ù„.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø§Ù„ØµØ¨Ø± Ø¹Ù†Ø¯ Ø§Ù„Ø¨Ù„Ø§Ø¡ ÙˆØ§Ù„Ø´ÙƒØ± Ø¹Ù†Ø¯ Ø§Ù„Ø±Ø®Ø§Ø¡.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø­Ø³Ù† Ø§Ù„Ø¸Ù† Ø¨Ùƒ.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø§Ù„Ø¹ÙÙˆ ÙˆØ§Ù„Ø¹Ø§ÙÙŠØ© ÙÙŠ Ø¯ÙŠÙ†ÙŠ ÙˆØ¯Ù†ÙŠØ§ÙŠ ÙˆØ£Ù‡Ù„ÙŠ ÙˆÙ…Ø§Ù„ÙŠ.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø§Ù„Ø³ØªØ± ÙˆØ§Ù„Ø¹Ø§ÙÙŠØ© ÙÙŠ Ø§Ù„Ø¯Ù†ÙŠØ§ ÙˆØ§Ù„Ø¢Ø®Ø±Ø©.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø§Ù„Ù…ØºÙØ±Ø© ÙˆØ§Ù„Ø±Ø­Ù…Ø©.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø§Ù„Ø«Ø¨Ø§Øª Ø¹Ù„Ù‰ Ø§Ù„Ø¯ÙŠÙ†.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø§Ù„Ù‚ÙˆØ© ÙÙŠ Ø§Ù„Ø¹Ø¨Ø§Ø¯Ø©.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø§Ù„ØªÙˆÙÙŠÙ‚ ÙÙŠ ÙƒÙ„ Ø£Ù…ÙˆØ±ÙŠ.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø§Ù„ÙØ±Ø¬ Ø¨Ø¹Ø¯ Ø§Ù„Ø´Ø¯Ø©.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø§Ù„Ø£Ù…Ù† ÙŠÙˆÙ… Ø§Ù„ÙØ²Ø¹ Ø§Ù„Ø£ÙƒØ¨Ø±.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø§Ù„Ø¬Ù†Ø© ÙˆÙ†Ø¹ÙŠÙ…Ù‡Ø§.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø§Ù„Ù†Ø¬Ø§Ø© Ù…Ù† Ø§Ù„Ù†Ø§Ø± ÙˆØ¹Ø°Ø§Ø¨Ù‡Ø§.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø­Ø³Ù† Ø§Ù„Ø¹Ù…Ù„ ÙˆØ®Ø§ØªÙ…ØªÙ‡.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø§Ù„ØµØ¨Ø± Ø¹Ù„Ù‰ Ø·Ø§Ø¹ØªÙƒ.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø§Ù„Ø¹ÙÙˆ Ø¹Ù†Ø¯ Ø§Ù„Ù…Ø¹ØµÙŠØ©.",
+        "Ø§Ù„Ù„Ù‡Ù… Ø¥Ù†ÙŠ Ø£Ø³Ø£Ù„Ùƒ Ø§Ù„Ø±Ø¶Ø§ Ø¨Ø§Ù„Ù‚Ø¶Ø§Ø¡.",
     ];
 
-    // ÃÓÆáÉ ÇáãÓÇÈŞÉ (30 ÓÄÇáÇğ)
+    // Ø£Ø³Ø¦Ù„Ø© Ø§Ù„Ù…Ø³Ø§Ø¨Ù‚Ø© (30 Ø³Ø¤Ø§Ù„Ø§Ù‹)
     const quizQuestions = [
-        { question: "ãÇ åí Ãæá ÂíÉ äÒáÊ İí ÇáŞÑÂä¿", answer: "ÇŞÑÃ" },
-        { question: "ßã ÚÏÏ ÓæÑ ÇáŞÑÂä¿", answer: "114" },
-        { question: "ãÇ åí ÃØæá ÓæÑÉ İí ÇáŞÑÂä¿", answer: "ÇáÈŞÑÉ" },
-        { question: "ãÇ åí ÃŞÕÑ ÓæÑÉ İí ÇáŞÑÂä¿", answer: "ÇáßæËÑ" },
-        { question: "ãä åæ Ãæá äÈí¿", answer: "ÂÏã" },
-        { question: "ãä åæ ÎÇÊã ÇáÃäÈíÇÁ¿", answer: "ãÍãÏ" },
-        { question: "ãÇ åí ÇáÓæÑÉ ÇáÊí ÊÓãì ŞáÈ ÇáŞÑÂä¿", answer: "íÓ" },
-        { question: "ãÇ åí ÇáÓæÑÉ ÇáÊí ÊÓãì Ãã ÇáßÊÇÈ¿", answer: "ÇáİÇÊÍÉ" },
-        { question: "ßã ÚÏÏ ÃÑßÇä ÇáÅÓáÇã¿", answer: "5" },
-        { question: "ãÇ åí ÃÑßÇä ÇáÅÓáÇã¿", answer: "ÇáÔåÇÏÉ¡ ÇáÕáÇÉ¡ ÇáÒßÇÉ¡ ÇáÕæã¡ ÇáÍÌ" },
-        { question: "ãÇ åí ÃÑßÇä ÇáÅíãÇä¿", answer: "ÇáÅíãÇä ÈÇááå¡ ãáÇÆßÊå¡ ßÊÈå¡ ÑÓáå¡ Çáíæã ÇáÂÎÑ¡ ÇáŞÏÑ ÎíÑå æÔÑå" },
-        { question: "ãÇ åí ÃÚÙã ÂíÉ İí ÇáŞÑÂä¿", answer: "ÂíÉ ÇáßÑÓí" },
-        { question: "ãÇ åí ÇáÓæÑÉ ÇáÊí ÊÓãì ÓæÑÉ ÇáÊæÏíÚ¿", answer: "ÇáäÕÑ" },
-        { question: "ãÇ åí ÇáÓæÑÉ ÇáÊí ÊÓãì ÓæÑÉ ÇáäÓÇÁ ÇáÕÛÑì¿", answer: "ÇáØáÇŞ" },
-        { question: "ãÇ åí ÇáÓæÑÉ ÇáÊí ÊÓãì ÓæÑÉ ÇáÍæÇÑííä¿", answer: "ÇáÕİ" },
-        { question: "ãÇ åí ÇáÓæÑÉ ÇáÊí ÊÓãì ÓæÑÉ ÇáİÑÇÆÖ¿", answer: "ÇáäÓÇÁ" },
-        { question: "ãÇ åí ÇáÓæÑÉ ÇáÊí ÊÓãì ÓæÑÉ ÇáäÚã¿", answer: "ÇáäÍá" },
-        { question: "ãÇ åí ÇáÓæÑÉ ÇáÊí ÊÓãì ÓæÑÉ ÇáÚŞæÏ¿", answer: "ÇáãÇÆÏÉ" },
-        { question: "ãÇ åí ÇáÓæÑÉ ÇáÊí ÊÓãì ÓæÑÉ ÇáŞÊÇá¿", answer: "ãÍãÏ" },
-        { question: "ãÇ åí ÇáÓæÑÉ ÇáÊí ÊÓãì ÓæÑÉ ÇáÍÔÑ¿", answer: "ÇáÍÔÑ" },
-        { question: "ãÇ åí ÇáÓæÑÉ ÇáÊí ÊÓãì ÓæÑÉ ÇáÊæÈÉ¿", answer: "ÇáÊæÈÉ" },
-        { question: "ãÇ åí ÇáÓæÑÉ ÇáÊí ÊÓãì ÓæÑÉ ÇáİÑŞÇä¿", answer: "ÇáİÑŞÇä" },
-        { question: "ãÇ åí ÇáÓæÑÉ ÇáÊí ÊÓãì ÓæÑÉ Çáãáß¿", answer: "Çáãáß" },
-        { question: "ãÇ åí ÇáÓæÑÉ ÇáÊí ÊÓãì ÓæÑÉ ÇáãÄãä¿", answer: "ÛÇİÑ" },
-        { question: "ãÇ åí ÇáÓæÑÉ ÇáÊí ÊÓãì ÓæÑÉ ÇáÓÌÏÉ¿", answer: "ÇáÓÌÏÉ" },
-        { question: "ãÇ åí ÇáÓæÑÉ ÇáÊí ÊÓãì ÓæÑÉ ÇáÍÇŞÉ¿", answer: "ÇáÍÇŞÉ" },
-        { question: "ãÇ åí ÇáÓæÑÉ ÇáÊí ÊÓãì ÓæÑÉ ÇáŞíÇãÉ¿", answer: "ÇáŞíÇãÉ" },
-        { question: "ãÇ åí ÇáÓæÑÉ ÇáÊí ÊÓãì ÓæÑÉ ÇáÅäÓÇä¿", answer: "ÇáÅäÓÇä" },
-        { question: "ãÇ åí ÇáÓæÑÉ ÇáÊí ÊÓãì ÓæÑÉ ÇáãÑÓáÇÊ¿", answer: "ÇáãÑÓáÇÊ" },
-        { question: "ãÇ åí ÇáÓæÑÉ ÇáÊí ÊÓãì ÓæÑÉ ÇáäÈÃ¿", answer: "ÇáäÈÃ" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø£ÙˆÙ„ Ø¢ÙŠØ© Ù†Ø²Ù„Øª ÙÙŠ Ø§Ù„Ù‚Ø±Ø¢Ù†ØŸ", answer: "Ø§Ù‚Ø±Ø£" },
+        { question: "ÙƒÙ… Ø¹Ø¯Ø¯ Ø³ÙˆØ± Ø§Ù„Ù‚Ø±Ø¢Ù†ØŸ", answer: "114" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø£Ø·ÙˆÙ„ Ø³ÙˆØ±Ø© ÙÙŠ Ø§Ù„Ù‚Ø±Ø¢Ù†ØŸ", answer: "Ø§Ù„Ø¨Ù‚Ø±Ø©" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø£Ù‚ØµØ± Ø³ÙˆØ±Ø© ÙÙŠ Ø§Ù„Ù‚Ø±Ø¢Ù†ØŸ", answer: "Ø§Ù„ÙƒÙˆØ«Ø±" },
+        { question: "Ù…Ù† Ù‡Ùˆ Ø£ÙˆÙ„ Ù†Ø¨ÙŠØŸ", answer: "Ø¢Ø¯Ù…" },
+        { question: "Ù…Ù† Ù‡Ùˆ Ø®Ø§ØªÙ… Ø§Ù„Ø£Ù†Ø¨ÙŠØ§Ø¡ØŸ", answer: "Ù…Ø­Ù…Ø¯" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø§Ù„Ø³ÙˆØ±Ø© Ø§Ù„ØªÙŠ ØªØ³Ù…Ù‰ Ù‚Ù„Ø¨ Ø§Ù„Ù‚Ø±Ø¢Ù†ØŸ", answer: "ÙŠØ³" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø§Ù„Ø³ÙˆØ±Ø© Ø§Ù„ØªÙŠ ØªØ³Ù…Ù‰ Ø£Ù… Ø§Ù„ÙƒØªØ§Ø¨ØŸ", answer: "Ø§Ù„ÙØ§ØªØ­Ø©" },
+        { question: "ÙƒÙ… Ø¹Ø¯Ø¯ Ø£Ø±ÙƒØ§Ù† Ø§Ù„Ø¥Ø³Ù„Ø§Ù…ØŸ", answer: "5" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø£Ø±ÙƒØ§Ù† Ø§Ù„Ø¥Ø³Ù„Ø§Ù…ØŸ", answer: "Ø§Ù„Ø´Ù‡Ø§Ø¯Ø©ØŒ Ø§Ù„ØµÙ„Ø§Ø©ØŒ Ø§Ù„Ø²ÙƒØ§Ø©ØŒ Ø§Ù„ØµÙˆÙ…ØŒ Ø§Ù„Ø­Ø¬" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø£Ø±ÙƒØ§Ù† Ø§Ù„Ø¥ÙŠÙ…Ø§Ù†ØŸ", answer: "Ø§Ù„Ø¥ÙŠÙ…Ø§Ù† Ø¨Ø§Ù„Ù„Ù‡ØŒ Ù…Ù„Ø§Ø¦ÙƒØªÙ‡ØŒ ÙƒØªØ¨Ù‡ØŒ Ø±Ø³Ù„Ù‡ØŒ Ø§Ù„ÙŠÙˆÙ… Ø§Ù„Ø¢Ø®Ø±ØŒ Ø§Ù„Ù‚Ø¯Ø± Ø®ÙŠØ±Ù‡ ÙˆØ´Ø±Ù‡" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø£Ø¹Ø¸Ù… Ø¢ÙŠØ© ÙÙŠ Ø§Ù„Ù‚Ø±Ø¢Ù†ØŸ", answer: "Ø¢ÙŠØ© Ø§Ù„ÙƒØ±Ø³ÙŠ" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø§Ù„Ø³ÙˆØ±Ø© Ø§Ù„ØªÙŠ ØªØ³Ù…Ù‰ Ø³ÙˆØ±Ø© Ø§Ù„ØªÙˆØ¯ÙŠØ¹ØŸ", answer: "Ø§Ù„Ù†ØµØ±" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø§Ù„Ø³ÙˆØ±Ø© Ø§Ù„ØªÙŠ ØªØ³Ù…Ù‰ Ø³ÙˆØ±Ø© Ø§Ù„Ù†Ø³Ø§Ø¡ Ø§Ù„ØµØºØ±Ù‰ØŸ", answer: "Ø§Ù„Ø·Ù„Ø§Ù‚" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø§Ù„Ø³ÙˆØ±Ø© Ø§Ù„ØªÙŠ ØªØ³Ù…Ù‰ Ø³ÙˆØ±Ø© Ø§Ù„Ø­ÙˆØ§Ø±ÙŠÙŠÙ†ØŸ", answer: "Ø§Ù„ØµÙ" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø§Ù„Ø³ÙˆØ±Ø© Ø§Ù„ØªÙŠ ØªØ³Ù…Ù‰ Ø³ÙˆØ±Ø© Ø§Ù„ÙØ±Ø§Ø¦Ø¶ØŸ", answer: "Ø§Ù„Ù†Ø³Ø§Ø¡" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø§Ù„Ø³ÙˆØ±Ø© Ø§Ù„ØªÙŠ ØªØ³Ù…Ù‰ Ø³ÙˆØ±Ø© Ø§Ù„Ù†Ø¹Ù…ØŸ", answer: "Ø§Ù„Ù†Ø­Ù„" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø§Ù„Ø³ÙˆØ±Ø© Ø§Ù„ØªÙŠ ØªØ³Ù…Ù‰ Ø³ÙˆØ±Ø© Ø§Ù„Ø¹Ù‚ÙˆØ¯ØŸ", answer: "Ø§Ù„Ù…Ø§Ø¦Ø¯Ø©" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø§Ù„Ø³ÙˆØ±Ø© Ø§Ù„ØªÙŠ ØªØ³Ù…Ù‰ Ø³ÙˆØ±Ø© Ø§Ù„Ù‚ØªØ§Ù„ØŸ", answer: "Ù…Ø­Ù…Ø¯" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø§Ù„Ø³ÙˆØ±Ø© Ø§Ù„ØªÙŠ ØªØ³Ù…Ù‰ Ø³ÙˆØ±Ø© Ø§Ù„Ø­Ø´Ø±ØŸ", answer: "Ø§Ù„Ø­Ø´Ø±" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø§Ù„Ø³ÙˆØ±Ø© Ø§Ù„ØªÙŠ ØªØ³Ù…Ù‰ Ø³ÙˆØ±Ø© Ø§Ù„ØªÙˆØ¨Ø©ØŸ", answer: "Ø§Ù„ØªÙˆØ¨Ø©" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø§Ù„Ø³ÙˆØ±Ø© Ø§Ù„ØªÙŠ ØªØ³Ù…Ù‰ Ø³ÙˆØ±Ø© Ø§Ù„ÙØ±Ù‚Ø§Ù†ØŸ", answer: "Ø§Ù„ÙØ±Ù‚Ø§Ù†" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø§Ù„Ø³ÙˆØ±Ø© Ø§Ù„ØªÙŠ ØªØ³Ù…Ù‰ Ø³ÙˆØ±Ø© Ø§Ù„Ù…Ù„ÙƒØŸ", answer: "Ø§Ù„Ù…Ù„Ùƒ" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø§Ù„Ø³ÙˆØ±Ø© Ø§Ù„ØªÙŠ ØªØ³Ù…Ù‰ Ø³ÙˆØ±Ø© Ø§Ù„Ù…Ø¤Ù…Ù†ØŸ", answer: "ØºØ§ÙØ±" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø§Ù„Ø³ÙˆØ±Ø© Ø§Ù„ØªÙŠ ØªØ³Ù…Ù‰ Ø³ÙˆØ±Ø© Ø§Ù„Ø³Ø¬Ø¯Ø©ØŸ", answer: "Ø§Ù„Ø³Ø¬Ø¯Ø©" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø§Ù„Ø³ÙˆØ±Ø© Ø§Ù„ØªÙŠ ØªØ³Ù…Ù‰ Ø³ÙˆØ±Ø© Ø§Ù„Ø­Ø§Ù‚Ø©ØŸ", answer: "Ø§Ù„Ø­Ø§Ù‚Ø©" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø§Ù„Ø³ÙˆØ±Ø© Ø§Ù„ØªÙŠ ØªØ³Ù…Ù‰ Ø³ÙˆØ±Ø© Ø§Ù„Ù‚ÙŠØ§Ù…Ø©ØŸ", answer: "Ø§Ù„Ù‚ÙŠØ§Ù…Ø©" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø§Ù„Ø³ÙˆØ±Ø© Ø§Ù„ØªÙŠ ØªØ³Ù…Ù‰ Ø³ÙˆØ±Ø© Ø§Ù„Ø¥Ù†Ø³Ø§Ù†ØŸ", answer: "Ø§Ù„Ø¥Ù†Ø³Ø§Ù†" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø§Ù„Ø³ÙˆØ±Ø© Ø§Ù„ØªÙŠ ØªØ³Ù…Ù‰ Ø³ÙˆØ±Ø© Ø§Ù„Ù…Ø±Ø³Ù„Ø§ØªØŸ", answer: "Ø§Ù„Ù…Ø±Ø³Ù„Ø§Øª" },
+        { question: "Ù…Ø§ Ù‡ÙŠ Ø§Ù„Ø³ÙˆØ±Ø© Ø§Ù„ØªÙŠ ØªØ³Ù…Ù‰ Ø³ÙˆØ±Ø© Ø§Ù„Ù†Ø¨Ø£ØŸ", answer: "Ø§Ù„Ù†Ø¨Ø£" },
     ];
 
-    // ÚÑÖ ÏÚÇÁ Çáíæã
+    // Ø¹Ø±Ø¶ Ø¯Ø¹Ø§Ø¡ Ø§Ù„ÙŠÙˆÙ…
     const dailyDua = document.getElementById("dailyDua");
-    const today = new Date().getDate(); // Çáíæã ÇáÍÇáí ãä ÇáÔåÑ
-    dailyDua.textContent = duas[today - 1]; // ÚÑÖ ÇáÏÚÇÁ ÇáãäÇÓÈ ááíæã
+    const today = new Date().getDate(); // Ø§Ù„ÙŠÙˆÙ… Ø§Ù„Ø­Ø§Ù„ÙŠ Ù…Ù† Ø§Ù„Ø´Ù‡Ø±
+    dailyDua.textContent = duas[today - 1]; // Ø¹Ø±Ø¶ Ø§Ù„Ø¯Ø¹Ø§Ø¡ Ø§Ù„Ù…Ù†Ø§Ø³Ø¨ Ù„Ù„ÙŠÙˆÙ…
 
-    // ÚÑÖ ÓÄÇá Çáíæã
+    // Ø¹Ø±Ø¶ Ø³Ø¤Ø§Ù„ Ø§Ù„ÙŠÙˆÙ…
     const quizQuestionElement = document.getElementById("quizQuestion");
     const quizAnswerElement = document.getElementById("quizAnswer");
     const quizResultElement = document.getElementById("quizResult");
@@ -247,15 +247,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("submitQuiz").addEventListener("click", () => {
         if (quizAnswerElement.value.trim().toLowerCase() === quizQuestions[today - 1].answer.toLowerCase()) {
-            quizResultElement.textContent = "ÅÌÇÈÉ ÕÍíÍÉ! ??";
+            quizResultElement.textContent = "Ø¥Ø¬Ø§Ø¨Ø© ØµØ­ÙŠØ­Ø©! ??";
             quizResultElement.style.color = "green";
         } else {
-            quizResultElement.textContent = "ÅÌÇÈÉ ÎÇØÆÉ¡ ÍÇæá ãÑÉ ÃÎÑì!";
+            quizResultElement.textContent = "Ø¥Ø¬Ø§Ø¨Ø© Ø®Ø§Ø·Ø¦Ø©ØŒ Ø­Ø§ÙˆÙ„ Ù…Ø±Ø© Ø£Ø®Ø±Ù‰!";
             quizResultElement.style.color = "red";
         }
     });
 
-    // ãÔÇÑßÉ Úáì æÓÇÆá ÇáÊæÇÕá ÇáÇÌÊãÇÚí
+    // Ù…Ø´Ø§Ø±ÙƒØ© Ø¹Ù„Ù‰ ÙˆØ³Ø§Ø¦Ù„ Ø§Ù„ØªÙˆØ§ØµÙ„ Ø§Ù„Ø§Ø¬ØªÙ…Ø§Ø¹ÙŠ
     function shareOnFacebook() {
         window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(window.location.href));
     }
@@ -268,7 +268,7 @@ document.addEventListener("DOMContentLoaded", function () {
         window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(window.location.href));
     }
 
-    // ÇáÊÑÌãÉ
+    // Ø§Ù„ØªØ±Ø¬Ù…Ø©
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({ pageLanguage: 'ar' }, 'google_translate_element');
     }
