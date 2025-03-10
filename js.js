@@ -1,6 +1,7 @@
 // js.js
 document.addEventListener("DOMContentLoaded", function () {
-    const surahSelect = document.getElementById("surah-select");
+  
+const surahSelect = document.getElementById("surah-select");
     const loadSurahButton = document.getElementById("load-surah");
     const surahNameElement = document.getElementById("surah-name");
     const quranContentElement = document.getElementById("quran-content");
