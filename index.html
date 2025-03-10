@@ -16,14 +16,13 @@
             <button onclick="window.location.href='doa.html'">الادعيه</button>
             <button onclick="window.location.href='azkar.html'">الأذكار العامة</button>
             <button onclick="window.location.href='zakat.html'">حساب الزكاه</button>
-             <button onclick="window.location.href='html.html'">قران كريم</button>
+            <button onclick="window.location.href='html.html'">قران كريم</button>
         </div>
         <div id="google_translate_element"></div>
     </header>
 
     <main>
         <div class="container">
-            <!-- أوقات الصلاة -->
             <div class="prayer-times">
                 <h2>أوقات الصلاة</h2>
                 <table>
@@ -36,14 +35,36 @@
                     <tbody id="prayerTable"></tbody>
                 </table>
             </div>
-
-            <!-- باقي الأقسام -->
         </div>
     </main>
 
     <footer>
         <p>تم التصميم بواسطة الباشمبرمج محمد ايهاب</p>
     </footer>
+
+    <!-- عنصر الصوت المخفي -->
+    <audio id="salawatAudio" src="mohammed.mp3"></audio>
+
+    <script>
+        // دالة تشغيل الصوت
+        function playSalawat() {
+            const audio = document.getElementById('salawatAudio');
+            audio.play().catch(error => {
+                console.log('يتطلب تفاعل المستخدم أولاً:', error);
+            });
+        }
+
+        // بدء التشغيل بعد تفاعل المستخدم الأولي
+        let isUserInteracted = false;
+
+        document.addEventListener('click', () => {
+            if (!isUserInteracted) {
+                isUserInteracted = true;
+                playSalawat(); // التشغيل الأولي
+                setInterval(playSalawat, 50000); // كل 50 ثانية
+            }
+        });
+    </script>
 
     <script src="script.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap"></script>
