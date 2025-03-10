@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>อวำศษ วแา฿วษ วแใส฿วใแษ</title>
+    <title>ุญุงุณุจุฉ ุงูุฒูุงุฉ ุงูู…ุชูุงู…ูุฉ</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Lateef&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -108,77 +108,77 @@
 </head>
 <body>
     <div class="header">
-        <h1>อวำศษ วแา฿วษ วแิวใแษ</h1>
+        <h1>ุญุงุณุจุฉ ุงูุฒูุงุฉ ุงูุดุงู…ูุฉ</h1>
     </div>
 
     <div class="container">
-        <div class="quran-verse">ๆ๓ร๓Þ๖ํใ๕ๆว๚ แี๘๓แ๓ๆษ๓ ๆ๓ม๓วส๕ๆว๚ แา๘๓฿๓ๆษ๓</div>
+        <div class="quran-verse">ููุฃููููู…ููุงู’ ูุตู‘ููููุฉู ููุกูุงุชููุงู’ ูุฒู‘ููููุฉู</div>
 
         <div class="nav">
-            <button class="nav-btn active" onclick="showSection('money')">า฿วษ วแไÞๆฯ</button>
-            <button class="nav-btn" onclick="showSection('gold')">า฿วษ วแะๅศ</button>
-            <button class="nav-btn" onclick="showSection('fitr')">า฿วษ วแÝุั</button>
+            <button class="nav-btn active" onclick="showSection('money')">ุฒูุงุฉ ุงููููุฏ</button>
+            <button class="nav-btn" onclick="showSection('gold')">ุฒูุงุฉ ุงูุฐูุจ</button>
+            <button class="nav-btn" onclick="showSection('fitr')">ุฒูุงุฉ ุงููุทุฑ</button>
         </div>
 
-        <!-- า฿วษ วแไÞๆฯ -->
+        <!-- ุฒูุงุฉ ุงููููุฏ -->
         <div id="money" class="section active">
             <div class="input-group">
-                <label>วแใศแÛ วแลฬใวแํ (ฬไํๅ ใีัํ):</label>
+                <label>ุงูู…ุจูุบ ุงูุฅุฌู…ุงูู (ุฌููู ู…ุตุฑู):</label>
                 <input type="number" id="amount">
             </div>
-            <button class="calculate" onclick="calculateMoney()">วอำศ</button>
+            <button class="calculate" onclick="calculateMoney()">ุงุญุณุจ</button>
         </div>
 
-        <!-- า฿วษ วแะๅศ -->
+        <!-- ุฒูุงุฉ ุงูุฐูุจ -->
         <div id="gold" class="section">
             <div class="input-group">
-                <label>ๆาไ วแะๅศ (ฬัวใ):</label>
+                <label>ูุฒู ุงูุฐูุจ (ุฌุฑุงู…):</label>
                 <input type="number" id="goldWeight">
             </div>
-            <button class="calculate" onclick="calculateGold()">วอำศ</button>
+            <button class="calculate" onclick="calculateGold()">ุงุญุณุจ</button>
         </div>
 
-        <!-- า฿วษ วแÝุั -->
+        <!-- ุฒูุงุฉ ุงููุทุฑ -->
         <div id="fitr" class="section">
             <div class="input-group">
-                <label>ฺฯฯ วแรÝัวฯ:</label>
+                <label>ุนุฏุฏ ุงูุฃูุฑุงุฏ:</label>
                 <input type="number" id="people">
             </div>
-            <button class="calculate" onclick="calculateFitr()">วอำศ</button>
+            <button class="calculate" onclick="calculateFitr()">ุงุญุณุจ</button>
         </div>
 
         <div id="result"></div>
     </div>
 
     <script>
-        // วแฯๆวแ วแรำวำํษ
+        // ุงูุฏูุงู ุงูุฃุณุงุณูุฉ
         function showSection(sectionId) {
-            // ลฮÝวม ฬใํฺ วแรÞำวใ
+            // ุฅุฎูุงุก ุฌู…ูุน ุงูุฃูุณุงู…
             document.querySelectorAll('.section').forEach(section => {
                 section.classList.remove('active');
             });
             
-            // ลแÛวม สไิํุ ฬใํฺ วแราัวั
+            // ุฅูุบุงุก ุชูุดูุท ุฌู…ูุน ุงูุฃุฒุฑุงุฑ
             document.querySelectorAll('.nav-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             
-            // ลูๅวั วแÞำใ วแใอฯฯ
+            // ุฅุธูุงุฑ ุงููุณู… ุงูู…ุญุฏุฏ
             document.getElementById(sectionId).classList.add('active');
             event.currentTarget.classList.add('active');
         }
 
-        // อำวศวส วแา฿วษ
+        // ุญุณุงุจุงุช ุงูุฒูุงุฉ
         function calculateMoney() {
             const amount = parseFloat(document.getElementById('amount').value);
-            const nisab = 94000; // ไีวศ วแา฿วษ ศวแฬไํๅ วแใีัํ
+            const nisab = 94000; // ูุตุงุจ ุงูุฒูุงุฉ ุจุงูุฌููู ุงูู…ุตุฑู
             let result = '';
 
             if(amount >= nisab) {
                 const zakat = amount * 0.025;
-                result = `า฿วษ วแใวแ วแๆวฬศษ: ${zakat.toFixed(2)} ฬไํๅ`;
+                result = `ุฒูุงุฉ ุงูู…ุงู ุงููุงุฌุจุฉ: ${zakat.toFixed(2)} ุฌููู`;
             } else {
-                result = 'วแใศแÛ แว ํศแÛ วแไีวศ';
+                result = 'ุงูู…ุจูุบ ูุง ูุจูุบ ุงููุตุงุจ';
             }
 
             showResult(result);
@@ -186,13 +186,13 @@
 
         function calculateGold() {
             const weight = parseFloat(document.getElementById('goldWeight').value);
-            const nisab = 85; // ไีวศ วแะๅศ ศวแฬัวใ
+            const nisab = 85; // ูุตุงุจ ุงูุฐูุจ ุจุงูุฌุฑุงู…
             let result = '';
 
             if(weight >= nisab) {
-                result = 'ํฬศ ลฮัวฬ า฿วษ วแะๅศ (2.5%)';
+                result = 'ูุฌุจ ุฅุฎุฑุงุฌ ุฒูุงุฉ ุงูุฐูุจ (2.5%)';
             } else {
-                result = 'วแๆาไ แว ํศแÛ วแไีวศ';
+                result = 'ุงููุฒู ูุง ูุจูุบ ุงููุตุงุจ';
             }
 
             showResult(result);
@@ -200,9 +200,9 @@
 
         function calculateFitr() {
             const people = parseInt(document.getElementById('people').value);
-            const fitrAmount = 40; // Þํใษ วแÝุั ศวแฬไํๅ
+            const fitrAmount = 40; // ููู…ุฉ ุงููุทุฑ ุจุงูุฌููู
             const total = people * fitrAmount;
-            showResult(`า฿วษ วแÝุั: ${total} ฬไํๅ`);
+            showResult(`ุฒูุงุฉ ุงููุทุฑ: ${total} ุฌููู`);
         }
 
         function showResult(text) {
