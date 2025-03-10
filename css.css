@@ -1,84 +1,116 @@
-/* styles.css */
+/* css.css */
+@import url('https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Noto+Sans+Arabic:wght@400;700&display=swap');
+
 body {
     font-family: 'Noto Sans Arabic', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+   
 }
 
-header {
-    background-color: #2c3e50;
-    color: #fff;
-    padding: 20px 0;
-}
+
+
+
 
 header h1 {
     margin: 0;
     font-size: 2.5rem;
+    font-family: 'Amiri Quran', serif;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
-.container {
-    padding: 20px;
-}
-
-.surah-list {
-    margin-bottom: 20px;
-}
-
-.surah-list label {
-    font-size: 1.2rem;
-    margin-right: 10px;
-}
-
-.surah-list select {
+.frame-decoration {
+    width: 80%;
+    max-width: 400px;
+    border: 3px solid #d4af37;
+    border-radius: 15px;
     padding: 10px;
-    font-size: 1rem;
-    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(212,175,55,0.3);
 }
 
-.surah-list button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.islamic-frame {
+    border: 2px solid #d4af37;
+    border-radius: 12px;
+    background: linear-gradient(45deg, #fffdf5, #fff);
+    position: relative;
+    margin: 20px 0;
 }
 
-.surah-list button:hover {
-    background-color: #2980b9;
+.top-decoration {
+    font-size: 3rem;
+    color: #d4af37;
+    text-align: center;
+    margin: -25px auto 20px;
+    width: 60px;
+    background: white;
+    border-radius: 50%;
+    line-height: 60px;
 }
 
-.quran-text {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: right;
-}
-
-.quran-text h2 {
+.quran-font {
+    font-family: 'Amiri Quran', serif;
+    font-size: 2rem;
+    line-height: 3;
     color: #2c3e50;
-    font-size: 1.8rem;
-    margin-bottom: 15px;
 }
 
-.quran-text p {
-    font-size: 1.5rem;
-    line-height: 2.5;
-    white-space: pre-wrap;
+.gold-text {
+    color: #d4af37;
+    text-shadow: 0 2px 2px rgba(0,0,0,0.1);
+}
+
+.islamic-select {
+    padding: 12px;
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 1.1rem;
+    margin: 0 10px;
+}
+
+.islamic-button {
+    background: #2c3e50;
+    color: #d4af37;
+    padding: 12px 25px;
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+    font-family: 'Amiri Quran', serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.islamic-button:hover {
+    background: #d4af37;
+    color: #2c3e50;
+    transform: scale(1.05);
+}
+
+.verse-decoration {
+    background: #f8f1e3;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-family: 'Amiri Quran', serif;
+    font-size: 1.4rem;
+    color: #2c3e50;
+    text-align: center;
+    border: 1px dashed #d4af37;
+}
+
+.ayah-decoration {
+    color: #d4af37;
+    font-size: 1.8rem;
+    margin-top: 10px;
 }
 
 footer {
-    background-color: #2c3e50;
-    color: #fff;
-    padding: 10px 0;
+    background: #2c3e50;
+    color: #d4af37;
+    padding: 15px 0;
+    font-family: 'Amiri Quran', serif;
     position: fixed;
     bottom: 0;
     width: 100%;
+    text-align: center;
+    border-top: 2px solid #d4af37;
 }
