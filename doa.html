@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>√ѕЏн… ≈”б«гн…</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Amiri', serif;
+        }
+
+        body {
+            background: #f0eee3;
+            background-image: radial-gradient(#d4af37 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 2rem;
+            background: #2c5f2d;
+            color: white;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .mosque-icon {
+            font-size: 3rem;
+            color: #d4af37;
+        }
+
+        .dua-box {
+            background: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 2px solid #d4af37;
+            text-align: center;
+        }
+
+        .dua-arabic {
+            font-size: 2rem;
+            color: #2c5f2d;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .dua-translation {
+            font-size: 1.2rem;
+            color: #666;
+            margin-top: 1rem;
+            border-top: 1px dashed #ddd;
+            padding-top: 1rem;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        button {
+            padding: 10px 25px;
+            border: none;
+            background: #2c5f2d;
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+
+        button:hover {
+            background: #d4af37;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            color: #666;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .dua-arabic {
+                font-size: 1.5rem;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <i class="fas fa-mosque mosque-icon"></i>
+        <h1>√ѕЏн… ≈”б«гн…</h1>
+        <p>—у»шц ћЏубдцн гхёцнгу б’шубуж…ц жугцд –х—шцншу цн —у»шуду« жу уёу»шуб ѕхЏу«Ѕц</p>
+    </header>
+
+    <div class="container">
+        <div class="dua-box">
+            <div class="dua-arabic" id="duaText"></div>
+            <div class="dua-translation" id="translation"></div>
+        </div>
+
+        <div class="controls">
+            <button onclick="previousDua()"><i class="fas fa-arrow-left"></i> «б”«»ё</button>
+            <button onclick="randomDua()">ѕЏ«Ѕ Џ‘ж«∆н</button>
+            <button onclick="nextDua()">«б «бн <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 гжёЏ «”б«г ѕж  яжѕ - ћгнЏ «бЌёжё гЌЁжў…</p>
+    </footer>
+
+    <script>
+const duas = [
+    // ... «б√ѕЏн… «б”«»ё… ...
+    {
+        arabic: "—у»шц √уЏхж–х »цяу гцдъ еугу“у« ц «б‘шуну«Ўцндц° жу√уЏхж–х »цяу —у»шц √удъ нуЌъ÷х—хждц",
+        translation: "—»н √Џж– »я гд ж”«ж” «б‘н«Ўнд° ж√Џж– »я √д нЌ÷—ждн"
+    },
+    {
+        arabic: "«ббшуехгшу ≈цдшцн √у”ъ√убхяу «бъехѕум° жу«б шхёум° жу«бъЏуЁу«Ёу° жу«бъџцдум",
+        translation: "«ббег ≈дн √”√бя «беѕм ж«б ём ж«бЏЁ«Ё ж«бџдм"
+    },
+    {
+        arabic: "«ббшуехгшу √у’ъбцЌъ бцн ѕцндцну «бшу–цн ехжу Џц’ъгу…х √угъ—цн° жу√у’ъбцЌъ бцн ѕхдъну«ну «бшу цн Ёцнеу« гуЏу«‘цн",
+        translation: "«ббег √’бЌ бн ѕндн «б–н еж Џ’г… √г—н° ж√’бЌ бн ѕдн«н «б н Ёне« гЏ«‘н"
+    },
+    {
+        arabic: "—у»шуду« еу»ъ буду« гцдъ √у“ъжу«ћцду« жу–х—шцншу« цду« ёх—шу…у √уЏънхдт жу«ћъЏубъду« бцбъгх шуёцнду ≈цгу«гр«",
+        translation: "—»д« е» бд« гд √“ж«ћд« ж–—н« д« ё—… √Џнд ж«ћЏбд« ббг ёнд ≈г«г«"
+    },
+    {
+        arabic: "«ббшуехгшу ≈цдшцн √уЏхж–х »цяу гцдъ Џцбъгт бу« нудъЁуЏх° жугцдъ ёубъ»т бу« нуќъ‘уЏх° жугцдъ дуЁъ”т бу«  у‘ъ»уЏх° жугцдъ ѕуЏъжу…т бу« нх”ъ ућу«»х буеу«",
+        translation: "«ббег ≈дн √Џж– »я гд Џбг б« ндЁЏ° жгд ёб» б« нќ‘Џ° жгд дЁ” б«  ‘»Џ° жгд ѕЏж… б« н” ћ«» бе«"
+    },
+    {
+        arabic: "—у»шуду« бу«  х“цџъ ёхбхж»уду« »уЏъѕу ≈ц–ъ еуѕунъ уду« жуеу»ъ буду« гцдъ буѕхдъяу —уЌъгу…р ≈цдшуяу √удъ у «бъжуешу«»х",
+        translation: "—»д« б«  “џ ёбж»д« »Џѕ ≈– еѕн д« же» бд« гд бѕдя —Ќг… ≈дя √д  «бже«»"
+    },
+    {
+        arabic: "«ббшуехгшу «џъЁц—ъ бцн –удъ»цн яхбшуех° ѕцёшуех жућцбшуех° жу√ужшубуех жу¬ќц—уех° жуЏубу«дцну уех жу”ц—шуех",
+        translation: "«ббег «џЁ— бн –д»н ябе° ѕёе жћбе° ж√жбе ж¬ќ—е° жЏб«дн е ж”—е"
+    },
+    {
+        arabic: "—у»шуду« √уЁъ—цџъ Џубунъду« ’у»ъ—р« жуЋу»шц ъ √уёъѕу«гуду« жу«дъ’х—ъду« Џубум «бъёужъгц «бъяу«Ёц—цнду",
+        translation: "—»д« √Ё—џ Џбнд« ’»—« жЋ»  √ёѕ«гд« ж«д’—д« Џбм «бёжг «бя«Ё—нд"
+    },
+    {
+        arabic: "«ббшуехгшу ≈цдшцн √у”ъ√убхяу ЁцЏъбу «бъќунъ—у« ц° жу у—ъяу «бъгхдъяу—у« ц° жуЌх»шу «бъгу”у«яцндц° жу√удъ  уџъЁц—у бцн жу у—ъЌугудцн",
+        translation: "«ббег ≈дн √”√бя ЁЏб «бќн—«  ж —я «бгдя—«  жЌ» «бг”«янд ж√д  џЁ— бн ж —Ќгдн"
+    },
+    {
+        arabic: "—у»шц «ћъЏубъдцн гхёцнгу «б’шубу«…ц жугцдъ –х—шцншу цн —у»шуду« жу уёу»шубъ ѕхЏу«Ѕц",
+        translation: "—» «ћЏбдн гёнг «б’б«… жгд –—н н —»д« ж ё»б ѕЏ«Ѕ"
+    }
+];
+
+        let currentDua = 0;
+
+        function updateDua() {
+            document.getElementById('duaText').textContent = duas[currentDua].arabic;
+            document.getElementById('translation').textContent = duas[currentDua].translation;
+        }
+
+        function nextDua() {
+            currentDua = (currentDua + 1) % duas.length;
+            updateDua();
+        }
+
+        function previousDua() {
+            currentDua = (currentDua - 1 + duas.length) % duas.length;
+            updateDua();
+        }
+
+        function randomDua() {
+            currentDua = Math.floor(Math.random() * duas.length);
+            updateDua();
+        }
+
+        // Џ—÷ «бѕЏ«Ѕ «б√жб Џдѕ  Ќгнб «б’ЁЌ…
+        updateDua();
+    </script>
+</body>
+</html>

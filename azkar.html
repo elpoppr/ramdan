@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>«·√–ﬂ«—</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2b580c;
+            --secondary-color: #639a67;
+            --gold-color: #d4af37;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Amiri', serif;
+        }
+
+        body {
+            background-color: #f8f5e6;
+            background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            padding: 20px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(43, 88, 12, 0.2);
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 20px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%232b580c" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>');
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .category-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+            text-align: center;
+            border: 2px solid var(--primary-color);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            background: #f8fff0;
+        }
+
+        .athkar-list {
+            display: none;
+        }
+
+        .thikr-card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            border-right: 5px solid var(--secondary-color);
+        }
+
+        .thikr-text {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .counter {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gold-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .counter-btn {
+            background: none;
+            border: 2px solid white;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .counter-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .back-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 30px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+        .islamic-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            z-index: -1;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%232b580c' fill-opacity='0.1'%3E%3Cpath d='M11 6h2v2h-2V6zm18 18h2v2h-2v-2zm-18 0h2v2h-2v-2zm18-18h2v2h-2V6zM11 42h2v2h-2v-2zm18 18h2v2h-2v-2zm-18 0h2v2h-2v-2zm18-18h2v2h-2v-2zM77 6h2v2h-2V6zm18 18h2v2h-2v-2zm-18 0h2v2h-2v-2zm18-18h2v2h-2V6zM77 42h2v2h-2v-2zm18 18h2v2h-2v-2zm-18 0h2v2h-2v-2zm18-18h2v2h-2v-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .thikr-text {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="islamic-pattern"></div>
+    <div class="container">
+        <header>
+            <h1> «·√–ﬂ«— </h1>
+            <p>´„Û‰˙ ﬁÛ—Û√Û ÕÛ—˙›« „ˆ‰˙ ﬂˆ Û«»ˆ «··Û¯Âˆ ›Û·ÛÂı »ˆÂˆ ÕÛ”Û‰Û…Òª</p>
+        </header>
+
+        <div class="categories" id="categories"></div>
+        <div class="athkar-list" id="athkarList"></div>
+    </div>
+
+    <script>
+        const athkarData = [
+            {
+                category: "√–ﬂ«— «·‰Ê„",
+                icon: "fas fa-moon",
+                athkar: [
+                    {text: "»ˆ«”˙„ˆﬂÛ —Û»ˆ¯‹Ì ÊÛ÷Û⁄˙‹ ı ÃÛ‰˙‹»Ì ° ÊÛ»ˆﬂÛ √Û—˙›Û⁄ı‹Â° ›Û≈ˆ‰ √Û„˙”Û‹ﬂ˙ Û ‰Û›˙”‹Ì ›«—˙ÕÛ‹„˙Â« ° ÊÛ≈ˆ‰˙ √Û—˙”Û·˙ Û‹Â« ›«Õ˙›ÛŸ˙‹Â« »ˆ„‹«  ÛÕ˙›Û‹Ÿı »ˆÂ ⁄ˆ»‹«œÛﬂÛ «·’¯‹«·ˆÕ‹Ì‰", count: 33},
+                    {text: "«··¯Âı‹„¯Û ≈ˆ‰¯Û‹ﬂÛ ŒÛ·Û‹ﬁ˙ Û ‰Û›˙”‹Ì ÊÛ√Û‰˙‹ Û  ÛÊÛ›¯‹«Â‹« ·ÛﬂÛ „„Û‹« ‹Â« ÊÛ„ÛÕ˙‹Ì«Â« ° ≈ˆ‰˙ √ÛÕ˙ÌÛ‹Ì˙ ÛÂ« ›«Õ˙›ÛŸ˙‹Â« ° ÊÛ≈ˆ‰˙ √Û„Û ¯Û‹Â« ›Û«€˙›ˆ‹—˙ ·Û‹Â« . «··¯Âı‹„¯Û ≈ˆ‰¯Û‹Ì √Û”˙‹√Û·ı‹ﬂÛ «·⁄‹«›ˆ‹ÌÛ…", count: 33},
+                    {text: "«··¯Âı‹„¯Û ﬁˆ‰‹Ì ⁄Û–«»Û‹ﬂÛ ÌÛ‹Ê˙„Û  Û»˙‹⁄ÛÀı ⁄ˆ»‹«œÛﬂ", count: 33}
+                ]
+            },
+            {
+                category: "√–ﬂ«— «·«” Ìﬁ«Ÿ",
+                icon: "fas fa-sun",
+                athkar: [
+                    {text: "«·ÕÛ„˙‹œı ·ˆ·¯Âˆ «·¯–Ì √ÛÕ˙‹Ì«‰« »Û⁄˙‹œÛ „« √Û„« Û‹‰« ÊÛ≈·ÌÂ «·‰¯ı‹‘Ê—", count: 33},
+                    {text: "«··¯ÛÂı„¯Û »ˆﬂÛ √Û’˙»ÛÕ˙‰Û«° ÊÛ»ˆﬂÛ √Û„˙”ÛÌ˙‰Û«° ÊÛ»ˆﬂÛ ‰ÛÕ˙ÌÛ«° ÊÛ»ˆﬂÛ ‰Û„ıÊ ı° ÊÛ≈ˆ·ÛÌ˙ﬂÛ «·‰¯ı‘ıÊ—ı", count: 33}
+                ]
+            },
+            {
+                category: "√–ﬂ«— «·ÿ⁄«„",
+                icon: "fas fa-utensils",
+                athkar: [
+                    {text: "»ˆ”˙„ˆ «··¯ÛÂˆ", count: 33},
+                    {text: "«·˙ÕÛ„˙œı ·ˆ·¯ÛÂˆ «·¯Û–ˆÌ √Ûÿ˙⁄Û„Û‰Û« ÊÛ”ÛﬁÛ«‰Û« ÊÛÃÛ⁄Û·Û‰Û« „ı”˙·ˆ„ˆÌ‰Û", count: 33}
+                ]
+            },
+            {
+                category: "√–ﬂ«— œŒÊ· «·„‰“·",
+                icon: "fas fa-home",
+                athkar: [
+                    {text: "«··¯Âı‹„¯Û ≈ˆ‰¯‹Ì √Û”˙‹√Û·ı‹ﬂÛ ŒÛ‹Ì˙—Û «·„‹Ê˙·ˆÃˆ ÊÛŒÛ‹Ì˙—Û «·„‹Œ˙—ÛÃˆ »ˆ”˙‹„ˆ «··Âˆ ÊÛ·ˆ‹Ã˙‰‹«° ÊÛ»ˆ”˙‹„ˆ «··Âˆ ŒÛ‹—ÛÃ˙‰‹«° ÊÛ⁄Û·‹Ï —Û»¯ˆ‰‹«  ÛÊÛﬂ¯·˙‹‰‹«", count: 33}
+                ]
+            },
+            {
+                category: "√–ﬂ«— «·Œ—ÊÃ „‰ «·„‰“·",
+                icon: "fas fa-door-open",
+                athkar: [
+                    {text: "»ˆ”˙„ˆ «··Âˆ°  ÛÊÛﬂ¯Û·˙ ı ⁄Û·ÛÏ «··Âˆ° ÊÛ·Û« ÕÛÊ˙·Û ÊÛ·Û« ﬁıÊ¯Û…Û ≈ˆ·¯Û« »ˆ«··Â", count: 33}
+                ]
+            },
+            {
+                category: "√–ﬂ«— »⁄œ «·’·«…",
+                icon: "fas fa-pray",
+                athkar: [
+                    {text: "√Û”˙ Û€˙›ˆ—ı «··ÂÛ (3 „—« ) «··Û¯Âı„Û¯ √Û‰˙ Û «·”Û¯·Û«„ı ÊÛ„ˆ‰˙ﬂÛ «·”Û¯·Û«„ı°  Û»Û«—Ûﬂ˙ Û ÌÛ« –Û« «·˙ÃÛ·Û«·ˆ ÊÛ«·˙≈ˆﬂ˙—Û«„ˆ", count: 33},
+                    {text: "·« ≈·Â ≈·« «··Â ÊÕœÂ ·« ‘—Ìﬂ ·Â° ·Â «·„·ﬂ Ê·Â «·Õ„œ ÊÂÊ ⁄·Ï ﬂ· ‘Ì¡ ﬁœÌ— (10 „—« )", count: 33}
+                ]
+            }
+        ];
+
+        function showCategories() {
+            const categoriesDiv = document.getElementById('categories');
+            const athkarListDiv = document.getElementById('athkarList');
+            
+            categoriesDiv.innerHTML = athkarData.map(category => `
+                <div class="category-card" onclick="showAthkar('${category.category}')">
+                    <i class="${category.icon} fa-2x" style="color: var(--primary-color)"></i>
+                    <h3>${category.category}</h3>
+                </div>
+            `).join('');
+            
+            categoriesDiv.style.display = 'grid';
+            athkarListDiv.style.display = 'none';
+        }
+
+        function showAthkar(categoryName) {
+            const category = athkarData.find(c => c.category === categoryName);
+            const athkarListDiv = document.getElementById('athkarList');
+            const categoriesDiv = document.getElementById('categories');
+            
+            athkarListDiv.innerHTML = `
+                <button class="back-btn" onclick="showCategories()">
+                    <i class="fas fa-arrow-left"></i> «·⁄Êœ… ≈·Ï «· ’‰Ì›« 
+                </button>
+                ${category.athkar.map((thikr, index) => `
+                    <div class="thikr-card">
+                        <p class="thikr-text">${thikr.text}</p>
+                        <div class="counter">
+                            <button class="counter-btn" onclick="updateCounter(${index}, -1)">-</button>
+                            <span>${thikr.count}</span>
+                            <button class="counter-btn" onclick="updateCounter(${index}, 1)">+</button>
+                        </div>
+                    </div>
+                `).join('')}
+            `;
+            
+            categoriesDiv.style.display = 'none';
+            athkarListDiv.style.display = 'block';
+        }
+
+        function updateCounter(thikrIndex, change) {
+            const currentCategory = document.querySelector('.back-btn').nextElementSibling.parentNode;
+            const counterElement = currentCategory.querySelectorAll('.counter span')[thikrIndex];
+            let currentCount = parseInt(counterElement.textContent);
+            
+            currentCount = Math.max(0, currentCount + change);
+            counterElement.textContent = currentCount;
+            
+            if(currentCount === 0) {
+                counterElement.parentElement.style.background = '#2b580c';
+                setTimeout(() => {
+                    counterElement.textContent = 33;
+                    counterElement.parentElement.style.background = 'var(--gold-color)';
+                }, 1000);
+            }
+        }
+
+        window.onload = showCategories;
+    </script>
+</body>
+</html>
