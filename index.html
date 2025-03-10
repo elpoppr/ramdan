@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مواقيت رمضان</title>
+    <title>اسلام دوت كود</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Lateef&family=Reem+Kufi&display=swap" rel="stylesheet">
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&client=te_lib"></script>
 </head>
 <body>
     <header>
-        <h1>مواقيت رمضان</h1>
-        <p>أوقات الصلاة والإفطار والسحور لشهر رمضان المبارك</p>
+        <h1>مواقيت الصلاه</h1>
+        <p>أوقات الصلاة والإفطار والسحور لشهر الخير والبركات</p>
         <div class="header-buttons">
-            <button id="darkModeToggle">وضع ليلي</button>
-            <button id="quranButton">قرآن كريم</button>
+            <button onclick="window.location.href='doa.html'">الادعيه</button>
+            <button onclick="window.location.href='azkar.html'">الأذكار العامة</button>
+            <button onclick="window.location.href='zakat.html'">حساب الزكاه</button>
+             <button onclick="window.location.href='html.html'">قران كريم</button>
         </div>
         <div id="google_translate_element"></div>
     </header>
@@ -34,61 +37,15 @@
                 </table>
             </div>
 
-            <!-- الإفطار والسحور -->
-            <div class="iftar-suhoor">
-                <h2>مواعيد الإفطار والسحور</h2>
-                <p>وقت الإفطار: <span id="iftarTime">--:--</span></p>
-                <p>وقت السحور: <span id="suhoorTime">--:--</span></p>
-                <p>الوقت المتبقي حتى الإفطار: <span id="countdownIftar">--:--:--</span></p>
-                <p>الوقت المتبقي حتى السحور: <span id="countdownSuhoor">--:--:--</span></p>
-            </div>
-
-            <!-- خريطة المساجد -->
-            <div class="map">
-                <h2>خريطة المساجد القريبة</h2>
-                <button id="findMosquesButton">ابحث عن المساجد القريبة</button>
-                <div id="map" style="height: 300px; width: 100%;"></div>
-            </div>
-
-            <!-- الأدعية -->
-            <div class="duas">
-                <h2>دعاء اليوم</h2>
-                <p id="dailyDua"></p>
-            </div>
-
-            <!-- الطقس -->
-            <div class="weather">
-                <h2>حالة الطقس</h2>
-                <p id="weatherInfo">جاري تحميل بيانات الطقس...</p>
-            </div>
-
-            <!-- البحث -->
-            <div class="search">
-                <input type="text" id="searchInput" placeholder="ابحث عن محتوى...">
-                <button id="searchButton">بحث</button>
-            </div>
-
-            <!-- المسابقات -->
-            <div class="quiz">
-                <h2>مسابقة اليوم</h2>
-                <p id="quizQuestion"></p>
-                <input type="text" id="quizAnswer" placeholder="أجب هنا...">
-                <button id="submitQuiz">إرسال</button>
-                <p id="quizResult"></p>
-            </div>
+            <!-- باقي الأقسام -->
         </div>
     </main>
 
     <footer>
-        <p>تم التصميم بإتقان وعمل جاد بواسطه الباشمبرمج محمد ايهاب</p>
-        <div class="social-share">
-            <button onclick="shareOnFacebook()">Facebook</button>
-            <button onclick="shareOnTwitter()">Twitter</button>
-            <button onclick="shareOnWhatsApp()">WhatsApp</button>
-        </div>
+        <p>تم التصميم بواسطة الباشمبرمج محمد ايهاب</p>
     </footer>
 
     <script src="script.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initMap" async defer></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap"></script>
 </body>
 </html>
