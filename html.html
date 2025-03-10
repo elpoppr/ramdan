@@ -1,37 +1,43 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>القرآن الكريم</title>
+    <title>تطبيق القرآن المزخرف</title>
     <link rel="stylesheet" href="css.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>القرآن الكريم</h1>
+        <h1>تطبيق القرآن الكريم</h1>
+        </div>
     </header>
 
     <main>
         <div class="container">
-            <!-- قائمة السور -->
-            <div class="surah-list">
-                <label for="surah-select">اختر سورة:</label>
-                <select id="surah-select">
-                    <!-- سيتم ملء الخيارات بواسطة JavaScript -->
+            <div class="surah-list islamic-frame">
+                <label for="surah-select">اختر السورة:</label>
+                <select id="surah-select" class="islamic-select">
+                    <!-- الخيارات تُملأ بواسطة JS -->
                 </select>
-                <button id="load-surah">عرض السورة</button>
+                <button id="load-surah" class="islamic-button">
+                    تحميل السورة
+                </button>
             </div>
 
-            <!-- عرض النص القرآني -->
-            <div class="quran-text">
-                <h2 id="surah-name"></h2>
-                <p id="quran-content"></p>
+            <div class="quran-text islamic-frame">
+                
+                <h2 id="surah-name" class="gold-text"></h2>
+                <p id="quran-content" class="quran-font"></p>
+                <div class="verse-decoration">
+                    <span>وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ</span>
+                    <div class="ayah-decoration">القمر 17</div>
+                </div>
             </div>
         </div>
     </main>
 
-    <footer>
-        <p>رمضان كريم</p>
-    </footer>
+        <p>حقوق محفوظة 2025 - موقع اسلام دوت كود</p>
+
 
     <script src="js.js"></script>
 </body>
