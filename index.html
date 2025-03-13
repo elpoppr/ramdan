@@ -1,72 +1,38 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اسلام دوت كود</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Lateef&family=Reem+Kufi&display=swap" rel="stylesheet">
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&client=te_lib"></script>
+    <title>نور ويب - تصميم إسلامي</title>
+    <link rel="stylesheet" href="fonat.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lateef&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>مواقيت الصلاه</h1>
-        <p>أوقات الصلاة والإفطار والسحور لشهر الخير والبركات</p>
-        <div class="header-buttons">
-            <button onclick="window.location.href='doa.html'">الادعيه</button>
-            <button onclick="window.location.href='azkar.html'">الأذكار العامة</button>
-            <button onclick="window.location.href='zakat.html'">حساب الزكاه</button>
-            <button onclick="window.location.href='html.html'">قران كريم</button>
-        </div>
-        <div id="google_translate_element"></div>
-    </header>
-
-    <main>
-        <div class="container">
-            <div class="prayer-times">
-                <h2>أوقات الصلاة</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>الصلاة</th>
-                            <th>الوقت</th>
-                        </tr>
-                    </thead>
-                    <tbody id="prayerTable"></tbody>
-                </table>
+    <div class="container">
+        <!-- الهيدر الإسلامي مع اللوجو -->
+        <div class="islamic-header">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="شعار نور ويب" class="logo">
             </div>
+            <h1>نُور ويب</h1>
+            <div class="arabic-pattern"></div>
+            <p class="quran-verse">وَجَعَلْنَا فِي السَّمَاءِ بُرُوجًا وَزَيَّنَّاهَا لِلنَّاظِرِينَ</p>
         </div>
-    </main>
 
-    <footer>
-        <p>تم التصميم بواسطة الباشمبرمج محمد ايهاب</p>
-    </footer>
+        <!-- عناصر التحميل -->
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
 
-    <!-- عنصر الصوت المخفي -->
-    <audio id="salawatAudio" src="mohammed.mp3"></audio>
+        <!-- حقوق النشر -->
+        <div class="copyright">
+            © حقوق النشر محفوظة لنور ويب 2025
+        </div>
+    </div>
 
+    <!-- سكريبت الانتقال التلقائي -->
     <script>
-        // دالة تشغيل الصوت
-        function playSalawat() {
-            const audio = document.getElementById('salawatAudio');
-            audio.play().catch(error => {
-                console.log('يتطلب تفاعل المستخدم أولاً:', error);
-            });
-        }
-
-        // بدء التشغيل بعد تفاعل المستخدم الأولي
-        let isUserInteracted = false;
-
-        document.addEventListener('click', () => {
-            if (!isUserInteracted) {
-                isUserInteracted = true;
-                playSalawat(); // التشغيل الأولي
-                setInterval(playSalawat, 50000); // كل 50 ثانية
-            }
-        });
+        setTimeout(() => {
+            window.location.href = "nour.html";
+        }, 5000);
     </script>
-
-    <script src="script.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap"></script>
 </body>
 </html>
