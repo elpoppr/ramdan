@@ -1,0 +1,126 @@
+/*  ‰”Ìﬁ«  ⁄«„… */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f0eee4;
+    font-family: 'Lateef', cursive;
+}
+
+.container {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/*  ’„Ì„ «·ÂÌœ— «·≈”·«„Ì „⁄ «··ÊÃÊ */
+.islamic-header {
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+}
+
+.logo-container {
+    width: 120px;
+    margin: 0 auto 1rem;
+    border: 3px solid #d4af37;
+    border-radius: 50%;
+    padding: 8px;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.logo {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    filter: sepia(30%);
+}
+
+.islamic-header h1 {
+    font-size: 3.5rem;
+    color: #2a5a3c;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    letter-spacing: 2px;
+    margin-top: 0.5rem;
+}
+
+.arabic-pattern {
+    width: 60%;
+    height: 20px;
+    background: repeating-linear-gradient(
+        45deg,
+        #d4af37,
+        #d4af37 10px,
+        #2a5a3c 10px,
+        #2a5a3c 20px
+    );
+    margin: 1rem auto;
+    border-radius: 5px;
+}
+
+.quran-verse {
+    font-size: 1.8rem;
+    color: #5a3921;
+    margin-top: 1rem;
+}
+
+/* ⁄‰«’— «· Õ„Ì· «·„⁄œ·… */
+.loader {
+    position: absolute;
+    top: 100%;
+    left:100%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 160px;
+    height: 100px;
+    border-radius: 3px;
+    background: #2a5a3c;
+    animation: dot1_ 3s cubic-bezier(0.55, 0.3, 0.24, 0.99) infinite;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.loader:nth-child(2) {
+    z-index: 11;
+    width: 150px;
+    height: 90px;
+    background: #d4af37;
+    animation-name: dot2_;
+}
+
+.loader:nth-child(3) {
+    z-index: 12;
+    width: 40px;
+    height: 20px;
+    background: #5a3921;
+    animation-name: dot3_;
+}
+
+/* ÕﬁÊﬁ «·‰‘— */
+.copyright {
+    position: fixed;
+    bottom: 15px;
+    left: 20px;
+    color: #5a3921;
+    font-size: 1.2rem;
+    z-index: 999;
+}
+
+/* «·√‰Ì„Ì‘‰«  */
+@keyframes dot1_ {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(0.9); }
+}
+
+@keyframes dot2_ {
+    0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+    50% { transform: translate(-50%, -50%) rotate(5deg); }
+}
+
+@keyframes dot3_ {
+    0%, 100% { transform: translate(-50%, -50%) skew(0deg); }
+    50% { transform: translate(-50%, -50%) skew(10deg); }
+}
