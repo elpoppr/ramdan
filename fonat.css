@@ -1,4 +1,4 @@
-/* สไำํÞวส ฺวใษ */
+/* ุชูุณููุงุช ุนุงู…ุฉ */
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +16,7 @@ body {
     overflow: hidden;
 }
 
-/* สีใํใ วแๅํฯั วแลำแวใํ ใฺ วแแๆฬๆ */
+/* ุชุตู…ูู… ุงูููุฏุฑ ุงูุฅุณูุงู…ู ู…ุน ุงูููุฌู */
 .islamic-header {
     text-align: center;
     padding: 1rem 0;
@@ -68,7 +68,7 @@ body {
     margin-top: 1rem;
 }
 
-/* ฺไวีั วแสอใํแ วแใฺฯแษ */
+/* ุนูุงุตุฑ ุงูุชุญู…ูู ุงูู…ุนุฏูุฉ */
 .loader {
     position: absolute;
     top: 100%;
@@ -99,7 +99,7 @@ body {
     animation-name: dot3_;
 }
 
-/* อÞๆÞ วแไิั */
+/* ุญููู ุงููุดุฑ */
 .copyright {
     position: fixed;
     bottom: 15px;
@@ -109,7 +109,7 @@ body {
     z-index: 999;
 }
 
-/* วแรไํใํิไวส */
+/* ุงูุฃููู…ูุดูุงุช */
 @keyframes dot1_ {
     0%, 100% { transform: translate(-50%, -50%) scale(1); }
     50% { transform: translate(-50%, -50%) scale(0.9); }
